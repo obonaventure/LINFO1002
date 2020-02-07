@@ -10,7 +10,8 @@ Notes du cours LINFO1002
    :maxdepth: 2
    :caption: Contents:
 
-   test   
+   test
+   inginious
 
 Indices et tables
 =================

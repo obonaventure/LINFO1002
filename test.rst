@@ -6,7 +6,18 @@
    autopep
    Ecrivez
    feedback
-
+   framework
+   frameworks
+   l'implémentation
+   illustratifs
+   implémentation
+   précondition
+   préconditions
+   formater
+   wiki
+   L'implémentation
+   
+   
 Comment tester des fonctions en python ?
 ----------------------------------------
 
@@ -233,7 +244,7 @@ Cette approche exhaustive dans laquelle on essaye toutes les combinaisons de val
 
    def mediane(tab):
    """
-   @pre: t est un tableau contenant un nombre impair d'entiers
+   @pre: tab est un tableau contenant un nombre impair d'entiers
    @ post: retourne l'element median de ce tableau
    """		
 

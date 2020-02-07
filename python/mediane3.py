@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 """
  Tests unitaires pour le calcul de la médiane entre trois nombres
 """
