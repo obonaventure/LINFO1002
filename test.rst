@@ -40,7 +40,7 @@ manuellement leurs fonctions avec quelques valeurs d'entrée et observant
 qu'elles fonctionnent correctement. D'autres ajoutent des appels à ``print``
 dans leur code à certains endroits. Ces approches peuvent aider à détecter des
 problèmes simples, mais elles sont à éviter en pratique. Leur inconvénient
-majeur est qu'elle forcent le programmeur à passer beaucoup de temps pour
+majeur est qu'elles forcent le programmeur à passer beaucoup de temps pour
 tester son programme. Comme celui-ci ou celle-ci manque souvent de temps, les
 tests sont rarement exécutés et le code risque fort de ne pas être correct.
 
@@ -59,13 +59,13 @@ Il existe plusieurs frameworks de test en python. Les plus connus sont `unittest
 Dans la cadre de ce cours, nous nous concentrerons sur unittest, vous aurez
 l'occasion d'apprendre d'autres frameworks de test dans le cadre d'autres cours d'informatique dans les prochaines années. Unittest est décrit en détails dans la documentation python : https://docs.python.org/3.5/library/unittest.html
 
-Dans un premier temps, nous utiliserons unittest de façon à vérifier que l'implémentation d'une fonction écrite en python est correcte. Dans un second temps, nous utiliserons les tests à des fins pédagogiques et écrirons de petits exercices inginious qui utilisent des tests unitaires écrits en utilisant unittest pour donner un feedback à des étudiants en informatique comme vous.
+Dans un premier temps, nous utiliserons unittest de façon à vérifier que l'implémentation d'une fonction écrite en python est correcte. Dans un second temps, nous utiliserons les tests à des fins pédagogiques et écrirons de petits exercices INGInious qui utilisent des tests unitaires écrits en utilisant unittest pour donner un feedback à des étudiants en informatique comme vous.
 
 Tests unitaires simples
 +++++++++++++++++++++++
 
 
-Nos premiers tests unitaires avec unittest ont pour objectif de vérifier qu'une fonction correspondant à une spécification donnée fourni le résultat attendu. Commençons par quelques fonctions mathématiques simples. Notre premier exemple est le calcul de la valeur absolue. Même si python inclus la fonction ``abs()``, nous pouvons redéfinir une fonction équivalente nous-même dans l'exemple ci-dessous.
+Nos premiers tests unitaires avec unittest ont pour objectif de vérifier qu'une fonction correspondant à une spécification donnée fourni le résultat attendu. Commençons par quelques fonctions mathématiques simples. Notre premier exemple est le calcul de la valeur absolue. Même si python inclus la fonction ``abs()``, nous pouvons redéfinir une fonction équivalente nous-mêmes dans l'exemple ci-dessous.
 
 .. literalinclude:: python/abs.py 
    :language: python 
@@ -74,7 +74,7 @@ Nos premiers tests unitaires avec unittest ont pour objectif de vérifier qu'une
 L'implémentation de la fonction ``my_abs()`` ne nécessite pas de commentaire
 particulier. Par contre, nous pouvons regarder comment cette fonction est testée en utilisant unittest. Tout d'abord (première ligne du script), il faut importer le module unittest de façon à pouvoir utiliser ses fonctionnalités.
 
-Avec unittest, un test unitaire s'écrit en étendant la classe ``unittest.TestCase`` et en ajoutant les méthodes permettant de tester les nouvelles fonctions. Dans le cas du calcul de la valeur absolue, nous avons ajouté la fonction ``test_my_abs()``. Celle-ci vérifie que la fonction ``my_abs()`` retourne le résultat attendu pour trois valeurs différents de son argument:
+Avec unittest, un test unitaire s'écrit en étendant la classe ``unittest.TestCase`` et en ajoutant les méthodes permettant de tester les nouvelles fonctions. Dans le cas du calcul de la valeur absolue, nous avons ajouté la fonction ``test_my_abs()``. Celle-ci vérifie que la fonction ``my_abs()`` retourne le résultat attendu pour trois valeurs différentes de son argument:
 
  - ``my_abs(0)`` retourne ``0``
  - ``my_abs(1)`` retourne ``1``
@@ -226,7 +226,7 @@ Lorsque l'on exécute les quatre tests définis ci-dessus sur cette version de l
 
 	  
 
-Malheureusement, la réponse est non. Dans la cas du calcul de la médiane, la bonne façon de tester correctement le bon fonctionnement de cette fonction est tester toutes les combinaisons possibles des valeurs des variables ``a``, ``b`` et ``c``. Comme le résultat dépend uniquement des relations d'ordre entre les différentes valeurs des variables entières, il faut écrire des assertions dans lesquelles les valeurs des variables sont telles que :
+Malheureusement, la réponse est non. Dans le cas du calcul de la médiane, la bonne façon de tester correctement le bon fonctionnement de cette fonction est testée toutes les combinaisons possibles des valeurs des variables ``a``, ``b`` et ``c``. Comme le résultat dépend uniquement des relations d'ordre entre les différentes valeurs des variables entières, il faut écrire des assertions dans lesquelles les valeurs des variables sont telles que :
 
  - ``a < b < c``
  - ``a < c < b``
@@ -270,14 +270,14 @@ Prenons un autre exemple aussi extrait des exercices du premier cours d'informat
    Recall that the operator % returns the remainder of the Euclidian division.
 
 
-Cette question est intéressante car elle combine un calcul est des cas limites. Si l'argument est ``0`` ou ``1``, la fonction doit retourner ``None``. Sinon, elle doit retourner le plus grand diviseur. Voici quelques exemples de codes (pas nécessairement corrects) proposés par des étudiants sus inginious et quelques tests unitaires.
+Cette question est intéressante car elle combine un calcul est des cas limites. Si l'argument est ``0`` ou ``1``, la fonction doit retourner ``None``. Sinon, elle doit retourner le plus grand diviseur. Voici quelques exemples de codes (pas nécessairement corrects) proposés par des étudiants sur INGInious et quelques tests unitaires.
 
 .. literalinclude:: python/pgd.py 
    :language: python 
    :linenos:
 
 
-Les assertions supportées par la classe ``unittest.TestCase`` permettent de couvrir la plupart des besoins. Il en existe d'autres que celles qui ont été présentée précédemment, dont:
+Les assertions supportées par la classe ``unittest.TestCase`` permettent de couvrir la plupart des besoins. Il en existe d'autres que celles qui ont été présentées précédemment, dont:
 
  - ``assertAlmostEqual(a, b)`` qui permet de vérifier si le réel ``a`` est "proche" du réel ``b``. Lorsqu'un fonction réalise un calcul mathématique, celui-ci peut être entaché d'erreurs qui dépendent de la façon dont le calcul a été écrit. Le cours de méthodes numériques décrit des techniques qui permettent de minimiser ces pertes de précision, mais il est impossible de les éviter. Si une de vos fonctions retourne un réel, préférez ``assertAlmostEqual(a, b)`` à ``assertEqual(a, b)``. Vous pouvez utiliser les arguments optionnels ``place`` ou ``delta`` pour spécifier le niveau de précision que vous souhaitez.
  - ``assertNotAlmostEqual(a, b)``
@@ -297,7 +297,7 @@ L'écriture d'un ensemble pertinent de tests unitaires pour une fonction donnée
 Considérons tout d'abord des fonctions qui n'ont pas d'effet de bord, c'est-à-dire des fonctions qui se contentent de lire leurs arguments (sans modifier leurs valeurs) et retournent un résultat. Pour ces fonctions, il est important de bien analyser les préconditions et de prendre en compte les cas suivants:
 
  - si la fonction prend des arguments entiers, tester avec ``0`` ainsi que des entiers positifs et négatifs qui respectent les préconditions
- - si la fonction prend une chaîne de caractères comme argument, voir comment elle réagit avec un chaîne vide, une chaîne contenant des caractères quelconques, une chaînes contenant des mots séparés par des espaces, virgules ou des retours à la ligne, voir si les chiffres ou caractères spéciaux sont bien supportés, voir si il est possible de traiter une très longue chaîne de caractères, ...
+ - si la fonction prend une chaîne de caractères comme argument, voir comment elle réagit avec un chaîne vide, une chaîne contenant des caractères quelconques, une chaîne contenant des mots séparés par des espaces, virgules ou des retours à la ligne, voir si les chiffres ou caractères spéciaux sont bien supportés, voir s'il est possible de traiter une très longue chaîne de caractères, ...
  - si la fonction prend comme argument une liste, il est intéressant de tester une liste vide, une liste avec un seul élément, un liste contenant des éléments tous différents, une liste contenant plusieurs fois le même élément, ... Si le traitement fait dans la fonction dépend de l'ordre dans lequel les éléments sont placés dans la liste, ``random.shuffle()`` peut s'avérer très utile pour produire des variations d'un même liste dans un ordre différent. Si la fonction doit traiter des éléments se trouvant dans une liste, pensez à placer ces éléments au début, au milieu ou à la fin de la liste pour vérifier que la fonction traite bien tous les cas possibles.
  - si la fonction traite des fichiers, il faut penser à utiliser des fichiers vides, valides et invalides. Dans ce cas, on préférera généralement créer tous les fichiers au début de la suite de test en utilisant la méthode ``setUp`` et on veillera à les supprimer dans la méthode ``tearDown``  
    
@@ -320,7 +320,7 @@ peuvent vous aider à adopter des conventions de codage uniformes.
 
 Un premier outil est `autopep8 <https://pypi.org/project/autopep8/>`_
 Il permet de formater automatiquement un code python de façon à ce qu'il
-respecte le plus possibles les conventions standard de codage en python.
+respecte le plus possible les conventions standard de codage en python.
 
 Un deuxième outil est `pylint <https://www.pylint.org/>`_
 Il est capable d'analyser votre code python pour voir si vous respectez
