@@ -170,7 +170,7 @@ Une deuxième différence importante avec les tests unitaires classiques est que
 .. code-block:: python
                 
             try:
-                student_ans=student.abs(n)
+                student_ans = student.abs(n)
             except Exception as e:
                 self.fail("Votre fonction a provoqué l'exception {}: {} avec comme argument {}".format(type(e), e, n))
 
