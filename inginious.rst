@@ -61,6 +61,14 @@ INGInious en Python. Celui-ci est disponible via le repo GitHub `https://github.
 
 Ce repo comprend six fichiers et deux répertoires. Le répertoire ``$common`` contient des utilitaires qui facilitent la création d'exercices INGInious en Python. Vous devez copier ce répertoire et les fichiers ``Runner.py`` et ``compiler.py`` qui s'y trouvent dans le répertoire racine de votre cours INGInious. Pour vous simplifier la vie, nous avons déjà copié ce répertoire ``$common`` sur votre cours INGInious.
 
+Commençons par la création de l'énoncé via l'interface web. C'est la partie la plus simple de la création d'un exercice.
+
+.. figure:: figures/inginious-1.png
+
+La première étape est de cliquer sur le bouton Course administration. INGInious affiche maintenant la page de gestion du cours qui contient de nombreuses informations sur les responsables du cours, sa disponibilité, des statistiques, etc. Sur la barre de droite, le bouton `Tasks` permet d'accéder aux différentes tâches associées au cours.
+
+.. figure:: figures/inginious-2.png
+
 INGInious vous permet aussi de monter votre cours comme un répertoire sur votre ordinateur. Pour cela, cliquez sur le bouton ``WebDAV access`` se trouvant sur la page INGInious de votre cours.
 
 .. figure:: figures/inginious-9.png
@@ -70,17 +78,6 @@ WebDAV est un protocole permettant d'accéder à un serveur de fichiers à trave
 .. figure:: figures/inginious-10.png
 
 Vous trouverez sur Internet et notamment https://www.webdavsystem.com/server/access/ des informations sur l'utilisation de WebDAV sur votre système d'exploitation préféré.
-
-Commençons par la création de l'énoncé via l'interface web. C'est la partie la plus simple de la création d'un exercice.
-
-
-.. figure:: figures/inginious-1.png
-
-
-La première étape est de cliquer sur le bouton Course administration. INGInious affiche maintenant la page de gestion du cours qui contient de nombreuses informations sur les responsables du cours, sa disponibilité, des statistiques, etc. Sur la barre de droite, le bouton `Tasks` permet d'accéder aux différentes tâches associées au cours.   
-
-.. figure:: figures/inginious-2.png
-
 
 Pour ajouter une tâche, il suffit de taper son nom dans la boîte de dialogue et de cliquer sur ``Create new task``. INGInious affiche alors les informations de configuration pour une tâche. Il faut d'abord spécifier:
 
