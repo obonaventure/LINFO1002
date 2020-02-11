@@ -137,7 +137,7 @@ Ensuite il suffit de le déplacer vers ``src/Templates``.
 .. figure:: figures/inginious-12.png
            
                     
-Ce fichier contient le squelette dans lequel le code que l'étudiant tapera sur INGInious sera ajouté. Le symbole ``@   @q1@@`` est l'identifiant de la question, dans notre cas ``q1``. Il est possible d'intégrer plusieurs sous-questions dans le même template si nécessaire.
+Ce fichier contient le squelette dans lequel le code que l'étudiant entrera sur INGInious sera ajouté. Le symbole ``@   @q1@@`` est l'identifiant de la question, dans notre cas ``q1``. Cet identifiant sera remplacé par le code de l'étudiant. Il est possible d'intégrer plusieurs sous-questions dans le même template si nécessaire.
 
 Ensuite nous pouvons créer une version correcte de la fonction demandée aux étudiants. Cette fonction est placée dans le fichier :download:`src/CorrAbs.py </python/inginious/CorrAbs.py>` qui se trouve dans le répertoire ``src``.
 
@@ -159,7 +159,7 @@ Nous pouvons enfin construire les tests unitaires. Ceux-ci se trouveront dans le
 
 Il y a quelques particularités à remarquer par rapport à la présentation générale des tests unitaires dans le chapitre précédent. Tout d'abord, nous importons deux versions de la fonction à tester :
 
- - la variable correcte en utilisant ``import CorrAbs as correct``
+ - l'implémentation correcte en utilisant ``import CorrAbs as correct``
  - la solution de l'étudiant en utilisant ``import abs as student``
 
 Ces deux importations nous permettent d'exécuter la fonction écrite par l'étudiant en appelant ``student.abs()`` et la version correcte via ``correct.abs()``.
@@ -171,10 +171,8 @@ Une deuxième différence importante avec les tests unitaires classiques est que
                 
             try:
                 student_ans=student.abs(n)
-            except: # capture toutes les exceptions possibles
-                e = sys.exc_info()[0]
-                self.fail("Votre fonction a provoqué l'exception "+
-                         str(e)+" avec comme argument "+str(n))
+            except Exception as e:
+                self.fail("Votre fonction a provoqué l'exception {}: {} avec comme argument {}".format(type(e), e, n))
 
 Ce ``try: ... except:`` capture toutes les exceptions possibles. Vous pouvez bien entendu l'améliorer en fournissant aux étudiants un message d'erreur spécifique à l'exception provoquée par vos tests. Pour le calcul de la valeur absolue, le code des étudiants ne devrait normalement pas provoquer d'exception, mais d'autres types d'exercices le pourraient. 
 

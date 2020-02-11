@@ -16,10 +16,8 @@ class TestAbs(unittest.TestCase):
         for n in args:
             try: 
                 student_ans=student.abs(n)
-            except: # capture toutes les exceptions possibles
-                e = sys.exc_info()[0]
-                self.fail("Votre fonction a provoqué l'exception "+
-                           str(e)+" avec comme argument "+str(n))
+            except Exception as e:
+                self.fail("Votre fonction a provoqué l'exception {}: {} avec comme argument {}".format(type(e), e, n))
             self.assertIsNotNone(student_ans,rep.format(n))
 
 
@@ -29,10 +27,8 @@ class TestAbs(unittest.TestCase):
         for n in args:
             try:
                 student_ans=student.abs(n)
-            except: # capture toutes les exceptions possibles
-                e = sys.exc_info()[0]
-                self.fail("Votre fonction a provoqué l'exception "+
-                         str(e)+" avec comme argument "+str(n))
+            except Exception as e:
+                self.fail("Votre fonction a provoqué l'exception {}: {} avec comme argument {}".format(type(e), e, n))
             correct_ans=correct.abs(n)
             self.assertEqual(student_ans, correct_ans,
                              rep.format(student_ans,n,correct_ans))
@@ -43,10 +39,8 @@ class TestAbs(unittest.TestCase):
         for n in args:
             try:
                 student_ans=student.abs(n)
-            except: # capture toutes les exceptions possibles
-                e = sys.exc_info()[0]
-                self.fail("Votre fonction a provoqué l'exception "+
-                         str(e)+" avec comme argument "+str(n))
+            except Exception as e:
+                self.fail("Votre fonction a provoqué l'exception {}: {} avec comme argument {}".format(type(e), e, n))
             correct_ans=correct.abs(n)
             self.assertEqual(student_ans, correct_ans,
                              rep.format(student_ans,n,correct_ans))
@@ -57,10 +51,8 @@ class TestAbs(unittest.TestCase):
         for n in args:
             try:
                 student_ans=student.abs(n)
-            except: # capture toutes les exceptions possibles
-                e = sys.exc_info()[0]
-                self.fail("Votre fonction a provoqué l'exception "+
-                         str(e)+" avec comme argument "+str(n))
+            except Exception as e:
+                self.fail("Votre fonction a provoqué l'exception {}: {} avec comme argument {}".format(type(e), e, n))
             correct_ans=correct.abs(n)
             self.assertEqual(student_ans, correct_ans,
                              rep.format(student_ans,n,correct_ans))
