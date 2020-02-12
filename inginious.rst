@@ -12,6 +12,8 @@
    template
    plateforme
    télécharger
+   wikipedia
+   webdav
    
    
 Comment écrire un exercice INGINIOUS en python ?
@@ -56,7 +58,7 @@ présenté dans le chapitre précédent quelques tests unitaires qui permettent
 de vérifier le bon fonctionnement de cette fonction. Il nous reste maintenant
 à convertir tout cela en un exercice INGINIOUS.
 
-Pour cela, vous pouvez vous appuyer sur une squelette de base d'exercice
+Pour cela, vous pouvez vous appuyer sur un squelette de base d'exercice
 INGINIOUS en python. Celui-ci est disponible via le repo GitHub `https://github.com/obonaventure/LINFO1002-P1 <https://github.com/obonaventure/LINFO1002-P1>`_
 
 Ce repo comprend six fichiers et deux répertoires. Le répertoire ``$common`` contient des utilitaires qui facilitent la création d'exercices INGINIOUS en python. Vous devez copier ce répertoire et les fichiers ``Runner.py`` et ``compiler.py`` qui s'y trouvent dans le répertoire racine de votre cours INGINIOUS. Pour vous simplifier la vie, nous avons déjà copié ce répertoire ``$common`` sur votre cours INGINIOUS.
@@ -185,4 +187,12 @@ Une troisième différence est que ``unittest`` exécute par défaut les tests d
               
 Vous pouvez maintenant essayer votre premier exercice INGINIOUS en python et voir comment la suite de test réagit à vos erreurs. N'hésitez pas à modifier la suite de tests pour l'améliorer.
 
- 
+Lors du développement de vos exercices INGINIOUS, il est possible que votre suite de test ne fonctionne pas convenablement et qu'INGINIOUS retourne une erreur. Dans ce cas, il est souvent utile d'accéder à de l'information de debug via le bouton ``debug`` se trouvant à droite de la fenêtre INGINIOUS.
+
+
+.. figure:: figures/inginious-debug-0.png
+
+Celui-ci vous permet de visualiser plus d'informations collectées lors de l'exécution de vos tests, dont l'erreur standard notamment.
+
+	    
+.. figure:: figures/inginious-debug-1.png

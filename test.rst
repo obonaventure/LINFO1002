@@ -329,6 +329,3 @@ qui détectent des erreurs liées une mauvaise utilisation des variables, la pr�
 
 
 
-
-Analyse statique
-----------------
