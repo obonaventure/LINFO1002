@@ -162,6 +162,6 @@ Cette fonction est validée par ``mypy`` et s'utilise avec des réels ou des ent
 
     
  
-Dans le cadre d'exercices INGInious, le typage statique facilite l'écriture du code de test et permet d'être sûr que l'étudiant utilise bien les arguments du bon type. Cela évite de devoir vérifier manuellement que les préconditions (au niveau des types de données) sont bien respectées. Le manuel officiel de ``mypy`` disponible via 
+Dans le cadre d'exercices INGInious, le typage statique facilite l'écriture du code de test et permet d'être sûr que l'étudiant utilise bien les arguments du bon type. Cela évite de devoir vérifier manuellement que les préconditions (au niveau des types de données) sont bien respectées. ``mypy`` a été intégré dans le fichier :download:`python/inginious/run` il vous suffit de mettre à jour ce fichier pour l'utiliser dans vos exercices. Le manuel officiel de ``mypy`` est disponible via `http://mypy.readthedocs.io <http://mypy.readthedocs.io>`_. 
 
     
