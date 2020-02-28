@@ -15,6 +15,11 @@ Notes du cours LINFO1002
    static
    projet1
    reviews
+   projet2
+   web
+   html
+   flask
+   sql
    
 Indices et tables
 =================
