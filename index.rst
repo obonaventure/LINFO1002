@@ -18,6 +18,7 @@ Notes du cours LINFO1002
    projet2
    web
    html
+   chartjs
    flask
    sql
    
