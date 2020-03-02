@@ -9,12 +9,16 @@ Le langage HTML
 L'HyperText Markup Langage (HTML) est un langage de description de documents
 qui s'appuie sur un ensembles de balises (`markups` en anglais). Il existe de
 nombreux livres et sites web qui fournissent de très nombreux détails sur HTML.
+Le site `https://www.w3schools.com/ <https://www.w3schools.com/html/>`_ propose
+de nombreuses ressources concernant HTML et les technologies web.
 
 Dans le cadre de ce projet, nous nous concentrerons sur un sous-ensemble de
 la version 5 du langage HTML (HTML5). Libre à vous d'explorer le web et les
 bibliothèques pour utiliser d'autres fonctionnalités de ce langage. Il est
 très important pour un informaticien et pouvoir apprendre de façon autonome
-en s'aidant des multiples ressources disponibles. 
+en s'aidant des multiples ressources disponibles. En cas de doute, la
+spécification officielle et complète de HTML5 est accessible en ligne:
+`https://html.spec.whatwg.org/multipage/ <https://html.spec.whatwg.org/multipage/>`_.
 
 Un document HTML est composé de deux parties : l'entête (`head` en anglais) et le corps (`body`en anglais). L'entête contient des informations telles que le titre de la page qui sera affiché en haut de la fenêtre du navigateur, mais aussi le type de codage des caractères utilisé, ... Le corps de
 la page contient lui le document en hypertexte.
@@ -26,23 +30,15 @@ L'entête du document HTML ci-dessous est la zone du fichier se trouvant entre
 les balises `<head>` et `</head>`. Celle-ci ne contient que le titre de la page que l'on reconnait grâce à l'utilisation de la balise `<title>`.
 
 
-.. code-block:: html
-                
-   <!DOCTYPE html>
-   <html>
-    <head>
-     <meta charset="utf-8">
-     <title> Un beau titre </title>
-    </head>
-    <body>
-     <h1>Première section</h1>
-     <p>Un petit paragraphe.</p>
-     <h1>Seconde section</h1>
-     <p>Un autre paragraphe.</p>
-    </body>
-   </html>
+.. literalinclude:: figures/html/html-simple.html
+   :language: html                 
+               
+   
+.. figure:: figures/html/html-simple.png
 
+   Une page HTML simple
 
+   
 Le corps du document HTML ci-dessus est la partie du fichier se trouvant entre
 les balises `<body>` et `</body>`. Ce texte comprend deux sous-sections contenant chacune un paragraphe. La balise `<h1>` correspond à un titre de section de premier niveau (`<h2>` pour une sous-section, c'est-à-dire un titre de deuxième niveau, ...). La balise `<p>` sert à identifier un paragraphe.
 
@@ -79,25 +75,14 @@ aux balises fermantes habituelles. Un commentaire peut être placé sur
 une ligne ou couvrir plusieurs lignes, comme les commentaires dans les
 langages de programmation.
 
-.. code-block:: html
-                
-   <!DOCTYPE html>
-   <html>
-    <head>
-     <meta charset="utf-8">
-     <title>Titre de page</title>
-     <!-- Un commentaire dans l'entête -->
-    </head>
-    <body>
-     <!-- Un commentaire dans le corps -->
-     <h1>Première section</h1>
-     <!--   commentaire
-           <p>Un petit paragraphe.</p>
-           <h1>Seconde section</h1>
-     -->       	   
-     <p>Un paragraphe.</p>
-    </body>
-   </html>
+
+.. literalinclude:: figures/html/html-comment.html
+   :language: html                 
+               
+   
+.. figure:: figures/html/html-comment.png
+
+   Une page HTML simple avec des commentaires
 
 Comme le langage HTML utilise les caractères `<` et `>` dans la définition
 des balises, comment faut-il afficher ces caractères dans un document
@@ -116,20 +101,13 @@ ce problème, HTML définit les entités caractères suivantes:
 Ainsi, dans une page HTML, il est possible d'expliquer en HTML le format d'un
 commentaire en HTML.
 
-.. code-block:: html
-                
-   <!DOCTYPE html>
-   <html>
-    <head>
-     <meta charset="utf-8">
-     <title>Ceci est un titre</title>
-    </head>
-    <body>
-     <p>
-     &lt;!-- Un commentaire disant que 3 &lt; 5  --&lg;
-     </p>
-    </body>
-   </html>
+.. literalinclude:: figures/html/html-comment2.html
+   :language: html                 
+               
+   
+.. figure:: figures/html/html-comment2.png
+
+   Une autre page HTML montrant comment écrire un commentaire en HTML
 
 
 De nombreuses balises HTML supportent des attributs qui permettent de
@@ -175,12 +153,15 @@ ancre (`anchor` en anglais) et en utilisant l'attribut `href` pour indiquer
 l'URL du lien hypertext. Ainsi dans un document HTML, un lien qui
 pointe vers le site web de l'UCLouvain s'écrit comme suit :
 
-.. code-block:: html
 
-   <p>
-   Allez visiter <a href="https://www.uclouvain.be"> le site web de l'UCLouvain</a>.
-   </p>
+.. literalinclude:: figures/html/html-a.html
+   :language: html                 
+               
+   
+.. figure:: figures/html/html-a.png
 
+   Une autre page HTML contenant un lien hypertexte
+   
 Grâce à la balise `<img>`, il est possible d'inclure une image à n'importe
 quel endroit dans une page HTML. Cette balise support plusieurs attributs :
 
@@ -198,18 +179,15 @@ souvent leurs images dans un ou quelques répertoires voir utilisent des
 serveurs dédiés pour les sites utilisant de très nombreuses images. Pour
 un petit site, le plus simple est de regrouper toutes les images
 du site dans un répertoire nommé par exemple `/images`.
+
+
+.. literalinclude:: figures/html/html-img.html
+   :language: html                 
+               
    
-.. code-block:: html
+.. figure:: figures/html/html-img.png
 
-   <!-- Une image dans le même répertoire ->
-   <img src="image.jpg" alt="Une image" width="500" height="600">
-
-   <!-- Une image dans un autre répertoire ->
-   <img src="/images/photo.jpg" alt="Une photo" width="200" height="200">
-
-   <!-- Une image sur un autre serveur ->
-   <img src="https://uclouvain.be/sites/all/themes/ucltheme/logo.png" alt="Le logo de l'UCLouvain">
-
+   Une page HTML contenant des images
    
 
 Dans un article scientifique, les figures sont généralement accompagnées
@@ -231,15 +209,14 @@ liste non-ordonnée, l'attribut `list-style-type` indique le type de marqueur
 d'élément. Par défaut c'est un point, mais il est possible d'utiliser
 un cercle (attribut `circle`), un carré (attribut `square`).
 
-.. code-block:: html
 
-   Les nombres premiers		
-   <ul style="list-style-type:circle">
-    <li>1</li>
-    <li>2</li>
-    <li>3</li>
-    <li>5</li>
-   </ul>
+.. literalinclude:: figures/html/html-li.html
+   :language: html                 
+               
+   
+.. figure:: figures/html/html-li.png
+
+   Une page HTML contenant une liste non numérotée
 
 
 Les listes ordonnées supportent elles l'attribut `type` qui permet
@@ -248,15 +225,16 @@ la numérotation entière qui est utilisée, mais HTML supporte aussi l'utilisat
 de lettres majuscules (attribut `type="A"`), minuscules (attribut `type="a"`)
 ou en chiffres romains (attribut `type="I"`).
 
-.. code-block:: html
 
-   Des villes d'Italie		
-   <ol style="type:I">
-    <li>Rome</li>
-    <li>Milan</li>
-    <li>Naples</li>
-    <li>Turin</li>
-   </ol>
+.. literalinclude:: figures/html/html-ol.html
+   :language: html                 
+               
+   
+.. figure:: figures/html/html-ol.png
+
+   Une page HTML contenant une liste ordonnée
+
+
 
 
 Outre les listes, il est aussi possible de présenter des informations
@@ -267,26 +245,16 @@ en anglais). La balise `<th>` est utilisée pour un nom ou une entête de colonn
 (`table header` en anglais) et enfin la balise `<td>` entoure une donnée
 dans une cellule de la table.
 
-.. code-block:: html
 
-   <table>
-    <tr>
-     <th>Pays</th>
-     <th>Continent</th>
-     <th>Capitale</th>
-    </tr>
-    <tr>
-     <td>Belgique</td>
-     <td>Europe</td>
-     <td>Bruxelles</td>
-    </tr>
-    <tr>
-     <td>Japon</td>
-     <td>Asie</td>
-     <td>Tokyo</td>
-    </tr> 
-   </table>
+.. literalinclude:: figures/html/html-table.html
+   :language: html                 
+               
+   
+.. figure:: figures/html/html-table.png
 
+   Une page HTML contenant une table
+
+   
 
 Il est possible en utilisant les attributs de ces balises de contrôler
 finement la façon dont les données sont présentées dans une table.
@@ -309,6 +277,9 @@ sur base de ses composantes rouge, verte et bleue. Cela permet à HTML de
 supporter toutes les couleurs imaginables.
 
 .. formulaire ??
+
+Les feuilles de style
+---------------------
 
 Lorsque l'on développe quelques pages HTML manuellement, il est possible
 d'indiquer ces attributs directement dans chaque page HTML. Malheureusement,
@@ -359,15 +330,18 @@ que l'élément `h1` un titre de premier niveau. Dans une feuille CSS,
 la balise `/*` marque le début d'un commentaire. La balise `*/` marque la
 fin d'un commentaire.
 
-.. code-block:: css
 
-   /* les titres en bleu et les paragraphes en noir */
-   h1 {
-    color: blue;
-   }
-   p {
-    color: black;
-   }
+.. literalinclude:: figures/html/html-simple-css.html
+   :language: html                 
+              
+
+.. literalinclude:: figures/html/simple.css
+   :language: html
+
+                    
+.. figure:: figures/html/html-simple-css.png
+
+   Une page HTML utilisant une feuille de style simple
 
    
 La puissance de CSS dans HTML5 vient du fait qu'il est possible d'appliquer
@@ -378,55 +352,95 @@ minimales et maximales. Supposons que le nom du lieu doit s'afficher en
 bleu et les températures en vert. Sans les styles, une telle page
 en HTML pourrait s'écrire comme suit:
 
-.. code-block:: html
 
-   <ul>
-    <li style="color:blue">Paris</li>
-      <ul>
-        <li style="color:green">Min: 5°</li>
-	<li style="color:green">Max: 9°</li>
-      </ul>
-    <li style="color:blue">Naples</li>
-      <ul>
-        <li style="color:green">Min: 17°</li>
-	<li style="color:green">Max: 22°</li>
-      </ul>
-  </ul>    
+.. literalinclude:: figures/html/html-simple-nocss.html
+   :language: html                 
+              
+
+                    
+.. figure:: figures/html/html-simple-nocss.png
+
+   Une page HTML sans feuille de style mais avec des couleurs
+
+
 
 Avec une feuille de style, il est plus simple de d'abord identifier chaque
 type d'élément. Cela peut se faire en utilisant l'attribut `class` qui
 permet d'identifier des sous-types d'un même type.
 
-.. code-block:: html
-
-   <ul>
-    <li class="ville">Paris</li>
-      <ul>
-        <li class="temp">Min: 5°</li>
-	<li class="temp">Max: 9°</li>
-      </ul>
-    <li style="color:blue">Naples</li>
-      <ul>
-        <li class="temp">Min: 17°</li>
-	<li class="temp">Max: 22°</li>
-      </ul>
-  </ul>    
+.. literalinclude:: figures/html/html-simple-css2.html
+   :language: html     
 
 
 L'attribut `class` de chaque élément `<li>` n'est pas directement affiché
 par le navigateur, mais il est utilisé par le CSS ci-dessous.
+              
 
-.. code-block:: css
+.. literalinclude:: figures/html/simple2.css
+   :language: html
 
-   /* les villes titres en bleu et les températures en vert */
-   li.ville {
-    color: blue;
-   }
-   li.temp {
-    color: green;
-   }
 
+Et le résultat apparait comme prévu.              
+                    
+.. figure:: figures/html/html-simple-css2.png
+
+   Une page HTML utilisant une feuille de style
+   
    
 L'avantage clair de cette approche est que si on veut remplacer la
 couleur verte par de l'orange pour les températures, il suffira
 de modifier une seule ligne dans le fichier CSS.
+
+Grâce à l'attribut `class` des éléments HTML5, il est possible d'identifier
+différents types de paragraphes, de listes ou de tables qui auront une
+mise en page différente en fonction de leur contenu. Lorsque ces éléments
+sont générés par des programmes, il est facile de leur associer la
+bonne classe directement. Il est possible d'aller plus loin en
+utilisant les balises `<div>` et `<span>`. Ces deux balises sont génériques
+et elles permettent de regrouper des zones d'un document HTML5. La
+balise `<div>` s'utilise pour regrouper une zone qui contient d'autres
+éléments HTML5. La balise `<span>` s'utilise elle plutôt autour d'une
+petite zone de texte. Ces deux balises peuvent contenir un attribut `class`.
+
+Notre premier exemple utilise la balise `<div>` pour entourer un
+article concernant une ville qui est composé d'une entête de section et
+d'un paragraphe.
+
+.. literalinclude:: figures/html/html-simple-css-div.html 
+   :language: html
+
+La feuille de style associée.              
+
+.. literalinclude:: figures/html/simple-div.css 
+   :language: css
+
+
+Et le résultat apparait comme prévu.              
+                    
+.. figure:: figures/html/html-simple-css-div.png
+
+   Une page HTML utilisant une feuille de style et la balise `<div>`
+
+Notre second exemple utilise la balise `<span>` pour afficher avec une
+couleur différente les températures minimales et maximales mesurées dans
+une ville.
+
+.. literalinclude:: figures/html/html-simple-css-span.html 
+   :language: html
+
+La feuille de style associée.              
+
+.. literalinclude:: figures/html/simple-span.css 
+   :language: css
+
+
+Et le résultat apparait comme prévu.              
+                    
+.. figure:: figures/html/html-simple-css-span.png
+
+   Une page HTML utilisant une feuille de style et la balise `<span>`
+
+
+L'attribut `class` et les balises `<div>` et `<span>` sont très utiles lorsque l'on
+veut produire avec un programme des pages HTML qui auront la même mise en page. Pensez à
+les utiliser à bon escient dans le cadre de votre projet.
