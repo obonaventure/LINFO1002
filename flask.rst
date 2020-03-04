@@ -85,19 +85,10 @@ flask s'inspire de ce mode de fonctionnement et vous permet d'écrire un
 programme en python qui répond aux requêtes HTTP faites par le navigateur.
 
 
-.. code-block:: python
+.. literalinclude:: flask/simple-flask.py
+   :language: python
 
-   from flask import Flask
-   app = Flask(__name__)
-
-   @app.route('/')
-   def index():
-       return '<!-- contenu de index.html ...'
-
-   @app.route('/page.html')
-   def page():
-       return '<!-- contenu de page.html ...'
-
+              
 
 flask utilise des décorateurs python pour indiquer l'URL qui doit
 être associée à une fonction python. Lorsque le serveur reçoit une
@@ -105,3 +96,20 @@ requête GET HTTP qui demande le fichier `/`, il exécute la fonction
 `index()` qui retourne le contenu correspondant au fichier `index.html`.
 Il en va de même pour la fonction `page()` qui est appelée automatiquement
 par le serveur web dès que celui-ci reçoit une requête pour `page.html`.
+
+.. note::
+
+   Dans le cadre de ce premier projet web, nous utiliserons la technologie
+   web en local. Le serveur que vous allez développer fonctionnera uniquement
+   sur votre ordinateur et ne sera pas accessible depuis Internet. L'écriture
+   d'un serveur web dynamique accessible depuis l'Internet nécessite de prendre
+   en compte des contraintes au niveau de la sécurité qui sortent du
+   cadre de ce cours de première année. 
+
+
+Avec ces décorateurs et ces fonctions, il est possible de concevoir tout
+un site web dynamique qui permet à l'utilisateur d'interagir réellement
+depuis son navigateur. Les fonctions que vous écrivez peuvent (doivent ?)
+bien entendu faire appel à d'autres fonctions et suivant les bonnes habitudes
+de découpe d'un programme en petites fonctions simples qui sont documentées,
+testées et réutilisables. 
