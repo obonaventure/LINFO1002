@@ -1,0 +1,16 @@
+   /* les villes en bleu */ 
+   li.ville {
+    color: blue;
+   }
+   /* les lignes de température en noir */
+   li.temp {
+    color: black;
+   }
+   /* température minimale en vert */
+   .tmin {
+    color: green; 
+   }
+   /* température maximale en rouge */
+   .tmax {
+    color: red; 
+   }

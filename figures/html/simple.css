@@ -1,0 +1,7 @@
+   /* les titres en bleu et les paragraphes en noir */
+   h1 {
+    color: blue;
+   }
+   p {
+    color: black;
+   }

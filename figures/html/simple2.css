@@ -1,0 +1,7 @@
+   /* les villes titres en bleu et les températures en vert */
+   li.ville {
+    color: blue;
+   }
+   li.temp {
+    color: green;
+   }
