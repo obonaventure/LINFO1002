@@ -35,7 +35,7 @@ principaux:
 
  - un langage (HTML) permettant de décrire des pages d'hypertextes
  - un protocole (HTTP) permettant à un navigateur web de charger un document HTML depuis un ou plusieurs serveurs web
- - un mécanisme (URL) permettant d'identifier de façon non-ambigüe une document web
+ - un mécanisme (URL) permettant d'identifier de façon non-ambiguë une document web
   
 Ces trois éléments sont supportés par les navigateurs et serveurs web. Ceux-ci jouent un rôle important dans l'évolution du web et le web n'aurait pas eu le succès qu'il a aujourd'hui sans l'existence de navigateurs et de serveurs efficaces. Le CERN a développé le premier navigateur textuel et le premier serveur. Ces deux logiciels étant open-source, ils ont servis de base au développement des autres navigateurs et serveurs web. Le navigateur Mosaic, développé par le National Center for Supercomputing Applications (NCSA) a été le premier navigateur graphique capable d'intégrer des images dans les documents. Netscape, créé par l'équipe qui avait lancé Mosaic, a été le premier navigateur commercial. C'est Netscape qui a été la première société à proposer des solutions pour sécuriser
 le commerce électronique. Les navigateurs actuels sont Firefox de Mozilla, Safari chez Apple et Chrome développé par Google. Microsoft a récemment annoncé que leur nouveau navigateur serait basé sur le coeur de Chrome qui est open-source et utilisé par d'autres navigateurs tels que brave. Côté serveurs, le serveur

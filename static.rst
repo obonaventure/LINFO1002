@@ -96,7 +96,7 @@ Lorsque ces différentes lignes sont exécutées, l'interpréteur Python affiche
        if i <= 0:
      TypeError: '<=' not supported between instances of 'list' and 'int'
 
-Les deux premières lignes sont correctes. Ensuite, Python affiche des messages d'erreur car la fonction n'est pas prévue pour fonctionner avec une liste, un tuple ou une chaîne de caractères. Si de telles erreurs sont détectées lors de l'exécution du programme par l'utilisateur, c'est génant car en général celui-ci n'a aucune idée de l'origine de l'erreur et ne sait pas la corriger. Dans un exercice INGInious, c'est aussi une source de nombreuses erreurs pour des étudiants. Le typage statique permet de valider les types des arguments et des valeurs de retour des fonctions. Dans l'exemple ci-dessous, ``mypy`` indique les erreurs suivantes:
+Les deux premières lignes sont correctes. Ensuite, Python affiche des messages d'erreur car la fonction n'est pas prévue pour fonctionner avec une liste, un tuple ou une chaîne de caractères. Si de telles erreurs sont détectées lors de l'exécution du programme par l'utilisateur, c'est gênant car en général celui-ci n'a aucune idée de l'origine de l'erreur et ne sait pas la corriger. Dans un exercice INGInious, c'est aussi une source de nombreuses erreurs pour des étudiants. Le typage statique permet de valider les types des arguments et des valeurs de retour des fonctions. Dans l'exemple ci-dessous, ``mypy`` indique les erreurs suivantes:
 
 .. code-block:: python
 

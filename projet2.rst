@@ -8,7 +8,7 @@ Second projet: site web de visualisation
 
 
 Durant le premier projet, vous avez proposé de nouveaux exercices en
-python pour la plateforme INGINIOUS. Sur la plateforme INGINIOUS qui
+python pour la plate-forme INGINIOUS. Sur la plate-forme INGINIOUS qui
 est déployée à l'UCLouvain, des milliers d'étudiants soumettent chaque
 semaines des dizaines de milliers de propositions de réponses à des
 exercices de programmation. Durant l'année 2019, plus de trois mille
@@ -44,7 +44,7 @@ Pour cela, une partie des données collectées l'an passé sur INGINIOUS
 a été convertie
 dans une base de données au format SQL. Cette base de données occupe
 près de 100 MBytes tout en ne contenant que l'information relative
-à trois cours disponibles sur la plateforme.
+à trois cours disponibles sur la plate-forme.
 
 Afin d'aider les enseignants qui utilisent INGINIOUS, votre objectif
 est de concevoir et d'implémenter un site web interactif permettant de
@@ -58,5 +58,5 @@ suivants:
  - le framework flask qui permet d'implémenter facilement des sites web interactifs en python, voir :ref:`ref-flask`
  - les bases de SQL et la façon dont on peut interagir avec une base de données SQL en python, voir :ref:`ref-sql`
 
-Vous veillerez, bien entendu, à écrire du code python clair, documenté et accompagné de tests unitaires. Une première version beta de votre projet devra être prête pour la fin du mois d'avril. Début mai, vous fournirez du feedback détaillé à d'autres groupes d'étudiants. Ensuite vous utiliserez le feedback reçu pour améliorer votre propre projet et présenterez votre prototype à l'équipe enseignante et un des développeurs d'INGINIOUS. 
+Vous veillerez, bien entendu, à écrire du code python clair, documenté et accompagné de tests unitaires. Une première version de votre projet devra être prête pour la fin du mois d'avril. Début mai, vous fournirez du feedback détaillé à d'autres groupes d'étudiants. Ensuite vous utiliserez le feedback reçu pour améliorer votre propre projet et présenterez votre prototype à l'équipe enseignante et un des développeurs d'INGINIOUS. 
 

@@ -55,6 +55,10 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '._*.rst']
 #spelling
 spelling_lang='fr'
 spelling_word_list_filename='dict.txt'
+tokenize_lang='fr'
+spelling_ignore_acronyms=True
+spelling_show_suggestions=True
+
 
 # -- Options for HTML output -------------------------------------------------
 

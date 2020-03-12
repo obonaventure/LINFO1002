@@ -30,7 +30,7 @@ de `chartjs <https://www.chartjs.org>`_ dans une page HTML. L'utilisation
 complète de Javascript sort du cadre de ce cours.
 
 
-Un graphique `chartjs` est toujours inclus dans une zone rectangular
+Un graphique `chartjs` est toujours inclus dans une zone rectangulaire
 définie par l'élément HTML5 `canvas` (canevas en français).
 Celui-ci supporte plusieurs attributs dont
 les plus importants sont :
@@ -41,7 +41,7 @@ les plus importants sont :
 
 L'exemple ci-dessous illustre la déclaration d'un tel canevas. L'identifiant
 permet de faire référence à ce canevas dans une feuille de style, mais surtout
-dans le code Javascript qui utilise la librarie `chartjs`.
+dans le code Javascript qui utilise la librairie `chartjs`.
    
 
 .. code-block:: html
@@ -49,7 +49,7 @@ dans le code Javascript qui utilise la librarie `chartjs`.
                 
    <canvas id="graphique" width="200" height="100"></canvas>
 
-Vous pouvez maintenant facilement afficher un graphique en batonets dans une
+Vous pouvez maintenant facilement afficher un graphique en bâtonnets dans une
 page HTML. Pour cela, il faut d'abord charger la librairie `chartjs` dans
 l'entête de votre page HTML en utilisant la balise `<script>` avec comme
 référence soit une version de la librairie disponible sur Internet, soit
@@ -89,7 +89,7 @@ est repris ci-dessous ainsi que sa visualisation dans un navigateur.
 
 .. figure:: figures/chartjs/batonnets.png
 
-   Exemple de diagramme en batonets avec chartjs
+   Exemple de diagramme en bâtonnets avec ``chart.js``
 
 
 Lorsque l'on écrit ses premiers scripts en Javascript, on peut parfois faire
@@ -99,7 +99,7 @@ des développeurs et leur permettent de corriger rapidement ces erreurs.
 Prenons Chrome comme exemple, mais Firefox ou Safari supportent
 les mêmes fonctionnalités. Ajoutons dans la page HTML ci-dessus une erreur
 dans les étiquettes en oubliant la première apostrophe avant le prénom `Jean`.
-Chrome n'affiche rien car il y a une erreur de syntaxe dans le javscript à
+Chrome n'affiche rien car il y a une erreur de syntaxe dans le javascript à
 la ligne 23. 
 
 .. figure:: figures/chartjs/chrome-err.png 
@@ -126,7 +126,7 @@ Prenons le fichier :download:`figures/chartjs/data.csv` qui contient les
 résultats de 468 étudiants à une interrogation. Cet ensemble de données peut
 être visualisé de nombreuses façons.
 
-Une solution naive est de simplement afficher les points de chaque étudiant dans
+Une solution naïve est de simplement afficher les points de chaque étudiant dans
 l'ordre de leur numéro d'inscription. Le résultat est complètement illisible
 et n'apporte aucune information utile.
 

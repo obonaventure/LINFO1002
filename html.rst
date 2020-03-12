@@ -33,7 +33,7 @@ Tout document HTML commence par la chaîne de caractères ``<!DOCTYPE html>``. C
 l'exemple ci-dessous, tout le texte se trouvant entre la balise ouvrante, `<html>`, et la balise fermante, `</html>` est marqué comme étant en HTML. Si un document HTML contient la balise ouvrante `<xyz>` il doit y avoir une balise fermante `</xyz>` plus loin qui délimite la zone de texte couverte par cette balise. C'est un peu comme des parenthèses dans une expression mathématique. Il y a toujours une parenthèse fermante qui correspond à une parenthèse ouvrante. 
 
 L'entête du document HTML ci-dessous est la zone du fichier se trouvant entre
-les balises `<head>` et `</head>`. Celle-ci ne contient que le titre de la page que l'on reconnait grâce à l'utilisation de la balise `<title>`.
+les balises `<head>` et `</head>`. Celle-ci ne contient que le titre de la page que l'on reconnaît grâce à l'utilisation de la balise `<title>`.
 
 
 .. literalinclude:: figures/html/html-simple.html
@@ -56,7 +56,7 @@ modifier le style utilisé pour présenter certains mots à l'écran, dont :
  - `<i>` qui est utilisé pour indiquer que du texte doit être écrit en italique. `<em>` est un synonyme sur de nombreux navigateurs.
  - `<sub>` qui indique que du texte doit être mis en indice
  - `<sup>` qui indique que du texte doit être mis en exposant
- - `<mark>` qui indique que du texte doit être surligné
+ - `<mark>` qui indique que du texte doit être sur-ligné
 
 Certaines balises sont liées à la présentation des paragraphes. Comme indiqué
 précédemment, un paragraphe début toujours par `<p>` et se termine par `</p>`. Celui-ci peut contenir de nombreuses lignes de textes. Le navigateur se chargera
@@ -76,7 +76,7 @@ proportionnel.
 Lorsque l'on écrit des pages HTML dans un éditeur de textes, il est parfois
 utile d'ajouter des commentaires. Par convention, dans un document HTML, un
 commentaire s'écrit à l'intérieur d'une balise `<!-- ... -->`. Il faut noter
-que la fin du commentaire ne comprend pas de caractère `\` contrairement
+que la fin du commentaire ne comprend pas de caractère `/` contrairement
 aux balises fermantes habituelles. Un commentaire peut être placé sur
 une ligne ou couvrir plusieurs lignes, comme les commentaires dans les
 langages de programmation.
@@ -99,7 +99,7 @@ ce problème, HTML définit les entités caractères suivantes:
  - `&lt;` pour représenter le caractère `<` dans du texte
  - `&gt;` pour représenter le caractère `>` dans du texte
  - `&amp;` pour représenter le caractère `&` dans du texte
- - `&nbsp;` pour indiquer un espace inséquable
+ - `&nbsp;` pour indiquer un espace insécable
  - `&quot;` pour le caractère correspondant aux guillemets (`"`)
  - `&apos;` pour le caractère correspondant à l'apostrophe
 
@@ -386,7 +386,7 @@ par le navigateur, mais il est utilisé par le CSS ci-dessous.
    :language: html
 
 
-Et le résultat apparait comme prévu.              
+Et le résultat apparaît comme prévu.              
                     
 .. figure:: figures/html/html-simple-css2.png
 
@@ -421,7 +421,7 @@ La feuille de style associée.
    :language: css
 
 
-Et le résultat apparait comme prévu.              
+Et le résultat apparaît comme prévu.              
                     
 .. figure:: figures/html/html-simple-css-div.png
 
@@ -440,7 +440,7 @@ La feuille de style associée.
    :language: css
 
 
-Et le résultat apparait comme prévu.              
+Et le résultat apparaît comme prévu.              
                     
 .. figure:: figures/html/html-simple-css-span.png
 
