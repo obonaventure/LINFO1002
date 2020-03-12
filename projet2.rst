@@ -14,9 +14,34 @@ semaines des dizaines de milliers de propositions de réponses à des
 exercices de programmation. Durant l'année 2019, plus de trois mille
 étudiants ont fait ensemble plus de 800.000 soumissions. INGINIOUS
 intègre quelques visualisations qui permettent aux enseignants de
-suivre la progression des étudiants dans leur cours. 
+suivre la progression des étudiants dans leur cours.
 
-Une partie des données collectées l'an passé sur INGINIOUS a été convertie
+La première de ces visualisations est accessible via l'onglet `Stats` de
+INGINIOUS. Elle permet de visualiser le nombre de soumissions faites pour
+un cours donné.
+
+.. figure:: figures/inginious-stats-1.png
+
+   Statistiques de base sur INGINIOUS	    
+
+
+L'onglet `Reporting` fournit également quelques rapports sur les
+résultats de différentes tâches.
+
+.. figure:: figures/inginious-stats-2.png
+
+   Un exemple de rapport fourni par INGINIOUS	    
+
+
+La plupart des enseignants souhaitent disposer de rapports plus complets
+qui intègrent une visualisation graphique. Même si il est écrit en
+python et est disponible en open-source, une modification directe
+du code source d'INGINIOUS sort du cadre de ce cours. Par contre, nous
+vous demandons de préparer un prototype de visualisation des résultats
+INGINIOUS.
+
+Pour cela, une partie des données collectées l'an passé sur INGINIOUS
+a été convertie
 dans une base de données au format SQL. Cette base de données occupe
 près de 100 MBytes tout en ne contenant que l'information relative
 à trois cours disponibles sur la plateforme.
@@ -27,11 +52,11 @@ visualiser de façon claire la progression et les résultats obtenus par
 les étudiants. Ce faisant, vous aller devoir apprendre les concepts
 suivants:
 
- - les bases du fonctionnement du world-wide web
- - les bases de l'HyperText Markup Langage (HTML) qui est utilisé pour écrire les pages disponibles sur un serveur web
- - le framework flask qui permet d'implémenter facilement des sites web interactifs en python
- - les bases de Javascript qui vous permettront d'utiliser la librairie chart.js pour produire facilement de belles visualisations
- - les bases de SQL et la façon dont on peut interagir avec une base de données SQL en python
+ - les bases du fonctionnement du world-wide web, voir :ref:`ref-web` 
+ - les bases de l'HyperText Markup Langage (HTML) qui est utilisé pour écrire les pages disponibles sur un serveur web, voir :ref:`ref-html`
+ - les bases pour utiliser la librairie ``chart.js`` pour produire facilement de belles visualisations, voir :ref:`ref-chartjs`
+ - le framework flask qui permet d'implémenter facilement des sites web interactifs en python, voir :ref:`ref-flask`
+ - les bases de SQL et la façon dont on peut interagir avec une base de données SQL en python, voir :ref:`ref-sql`
 
-Vous veillerez, bien entendu, à écrire que code python clair, documenté et accompagné de tests unitaires. En fin de projet, vous fournirez du feedback détaillé à d'autres groupes d'étudiants et utiliserez le feedback reçu pour améliorer votre propre projet. 
+Vous veillerez, bien entendu, à écrire du code python clair, documenté et accompagné de tests unitaires. Une première version beta de votre projet devra être prête pour la fin du mois d'avril. Début mai, vous fournirez du feedback détaillé à d'autres groupes d'étudiants. Ensuite vous utiliserez le feedback reçu pour améliorer votre propre projet et présenterez votre prototype à l'équipe enseignante et un des développeurs d'INGINIOUS. 
 
