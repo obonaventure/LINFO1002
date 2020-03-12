@@ -5,24 +5,28 @@
 
 .. _ref-html:
    
+
 Le langage HTML
 ===============
 
-L'HyperText Markup Langage (HTML) est un langage de description de documents
-qui s'appuie sur un ensembles de balises (`markups` en anglais). Il existe de
+L'HyperText Markup Language (HTML) est un langage de description de documents
+qui s'appuie sur un ensemble de balises (`markups` en anglais). Il s'agit du
+langage de référence pour décrire les pages web consultables via un navigateur.
+Il existe de
 nombreux livres et sites web qui fournissent de très nombreux détails sur HTML.
-Le site `https://www.w3schools.com/ <https://www.w3schools.com/html/>`_ propose
+Les sites `https://www.w3schools.com/ <https://www.w3schools.com/html/>`_ et `https://developer.mozilla.org/en-US/docs/Web/HTML <https://developer.mozilla.org/en-US/docs/Web/HTML>`_ proposent
 de nombreuses ressources concernant HTML et les technologies web.
 
 Dans le cadre de ce projet, nous nous concentrerons sur un sous-ensemble de
 la version 5 du langage HTML (HTML5). Libre à vous d'explorer le web et les
 bibliothèques pour utiliser d'autres fonctionnalités de ce langage. Il est
 très important pour un informaticien et pouvoir apprendre de façon autonome
-en s'aidant des multiples ressources disponibles. En cas de doute, la
-spécification officielle et complète de HTML5 est accessible en ligne:
-`https://html.spec.whatwg.org/multipage/ <https://html.spec.whatwg.org/multipage/>`_.
+en s'aidant des multiples ressources disponibles [#]_. 
 
-Un document HTML est composé de deux parties : l'entête (`head` en anglais) et le corps (`body`en anglais). L'entête contient des informations telles que le titre de la page qui sera affiché en haut de la fenêtre du navigateur, mais aussi le type de codage des caractères utilisé, ... Le corps de
+.. [#] En cas de doute, la spécification officielle et complète de HTML5 est accessible en ligne:
+       `https://html.spec.whatwg.org/multipage/ <https://html.spec.whatwg.org/multipage/>`_.
+
+Un document HTML est composé de deux parties : l'entête (`head` en anglais) et le corps (`body` en anglais). L'entête contient des informations telles que le titre de la page qui sera affiché en haut de la fenêtre du navigateur, mais aussi le type de codage des caractères utilisé, ... Le corps de
 la page contient lui le document en hypertexte.
 
 Tout document HTML commence par la chaîne de caractères ``<!DOCTYPE html>``. Cette chaîne est suivie par la première balise (ouvrante) : `<html>`. Dans
@@ -72,7 +76,7 @@ proportionnel.
 Lorsque l'on écrit des pages HTML dans un éditeur de textes, il est parfois
 utile d'ajouter des commentaires. Par convention, dans un document HTML, un
 commentaire s'écrit à l'intérieur d'une balise `<!-- ... -->`. Il faut noter
-que la fin du commentaier ne comprend pas de caractère `\` contrairement
+que la fin du commentaire ne comprend pas de caractère `\` contrairement
 aux balises fermantes habituelles. Un commentaire peut être placé sur
 une ligne ou couvrir plusieurs lignes, comme les commentaires dans les
 langages de programmation.
@@ -88,7 +92,7 @@ langages de programmation.
 
 Comme le langage HTML utilise les caractères `<` et `>` dans la définition
 des balises, comment faut-il afficher ces caractères dans un document
-HTML ? Il n'est pas possible de simplementation utiliser ces caractères
+HTML ? Il n'est pas possible de simplement utiliser ces caractères
 puisqu'ils sont interprétés par HTML comme des débuts de balises. Pour résoudre
 ce problème, HTML définit les entités caractères suivantes:
 
@@ -167,13 +171,13 @@ pointe vers le site web de l'UCLouvain s'écrit comme suit :
 Grâce à la balise `<img>`, il est possible d'inclure une image à n'importe
 quel endroit dans une page HTML. Cette balise support plusieurs attributs :
 
- - `src` : permet d'indiquer l'URL du fichier contenant l'image à inclure. Celui-ci peut être absolu ou relatif. La plupart des navigateurs supportent les fichiers aux format `png`, `jpg` ou `svg`.
+ - `src` : permet d'indiquer l'URL du fichier contenant l'image à inclure. Celui-ci peut être absolu ou relatif. La plupart des navigateurs supportent les fichiers aux formats `png`, `jpg` ou `svg`.
  - `alt` : (optionnel) permet d'indiquer une description textuelle de l'image pour les navigateurs non-graphiques
- - `width` : (optionnel) permet d'indiquer la large de l'image en pixels. Par défaut le navigateur prendra la largeur de l'image d'origne
- - `height` : (optionnel) permet d'indiquer la hauteur de l'image en pixels. Par défaut le navigateur prendra la hauteur de l'image d'origne   
+ - `width` : (optionnel) permet d'indiquer la large de l'image en pixels. Par défaut le navigateur prendra la largeur de l'image d'origine
+ - `height` : (optionnel) permet d'indiquer la hauteur de l'image en pixels. Par défaut le navigateur prendra la hauteur de l'image d'origine   
 
 
-Dans la document HTML, l'attribut `src` d'une image peut correspondre à
+Dans le document HTML, l'attribut `src` d'une image peut correspondre à
 un fichier se trouvant dans le même répertoire que le document HTML, un
 fichier présent dans un autre répertoire du même serveur ou sur un
 autre serveur. En pratique, les designers de sites web regroupent
@@ -287,7 +291,7 @@ Lorsque l'on développe quelques pages HTML manuellement, il est possible
 d'indiquer ces attributs directement dans chaque page HTML. Malheureusement,
 c'est assez fastidieux et il est difficile de garder une cohérence
 entre la présentation des différentes pages d'un même site web. Lorsqu'un
-site web est géré par un logiciel et est succeptible d'afficher de nombreuses
+site web est géré par un logiciel et est susceptible d'afficher de nombreuses
 pages HTML, il est préférable d'utiliser des feuilles de style ou Cascading
 Style Sheets (CSS). Une feuille de style est un ensemble cohérent
 de règles que le navigateur va appliquer à la mise en page d'un document
@@ -347,7 +351,7 @@ fin d'un commentaire.
 
    
 La puissance de CSS dans HTML5 vient du fait qu'il est possible d'appliquer
-ces attributs à des parties de texte qui ont étés préalablement marquées
+ces attributs à des parties de texte qui ont étés préalablement marqués
 par l'auteur du document. Prenons comme exemple une application web
 qui doit afficher une liste de lieux et une liste de mesures de températures
 minimales et maximales. Supposons que le nom du lieu doit s'afficher en
