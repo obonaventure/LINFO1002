@@ -8,7 +8,8 @@ Second projet: site web de visualisation
 
 
 Durant le premier projet, vous avez proposé de nouveaux exercices en
-python pour la plate-forme INGINIOUS. Sur la plate-forme INGINIOUS qui
+python pour la plate-forme `INGINIOUS <https://www.inginious.org>`_.
+Sur la plate-forme INGINIOUS qui
 est déployée à l'UCLouvain, des milliers d'étudiants soumettent chaque
 semaines des dizaines de milliers de propositions de réponses à des
 exercices de programmation. Durant l'année 2019, plus de trois mille
@@ -35,9 +36,9 @@ résultats de différentes tâches.
 
 La plupart des enseignants souhaitent disposer de rapports plus complets
 qui intègrent une visualisation graphique. Même si il est écrit en
-python et est disponible en open-source, une modification directe
-du code source d'INGINIOUS sort du cadre de ce cours. Par contre, nous
-vous demandons de préparer un prototype de visualisation des résultats
+Python et est `disponible en open-source <https://github.com/UCL-INGI/INGInious>`_, une modification directe
+du code source d'INGINIOUS sort du cadre de ce cours. Nous allons nous 
+contenter de préparer un prototype de visualisation des résultats
 INGINIOUS.
 
 Pour cela, une partie des données collectées l'an passé sur INGINIOUS
@@ -55,8 +56,10 @@ suivants:
  - les bases du fonctionnement du world-wide web, voir :ref:`ref-web` 
  - les bases de l'HyperText Markup Langage (HTML) qui est utilisé pour écrire les pages disponibles sur un serveur web, voir :ref:`ref-html`
  - les bases pour utiliser la librairie ``chart.js`` pour produire facilement de belles visualisations, voir :ref:`ref-chartjs`
- - le framework flask qui permet d'implémenter facilement des sites web interactifs en python, voir :ref:`ref-flask`
+ - le framework Flask qui permet d'implémenter facilement des sites web interactifs en python, voir :ref:`ref-flask`
  - les bases de SQL et la façon dont on peut interagir avec une base de données SQL en python, voir :ref:`ref-sql`
 
-Vous veillerez, bien entendu, à écrire du code python clair, documenté et accompagné de tests unitaires. Une première version de votre projet devra être prête pour la fin du mois d'avril. Début mai, vous fournirez du feedback détaillé à d'autres groupes d'étudiants. Ensuite vous utiliserez le feedback reçu pour améliorer votre propre projet et présenterez votre prototype à l'équipe enseignante et un des développeurs d'INGINIOUS. 
+Vous veillerez, bien entendu, à écrire du code python clair, documenté et accompagné de tests unitaires. Une première version de votre projet devra être prête avant la fin du mois d'avril. Début mai, vous fournirez du feedback détaillé à d'autres groupes d'étudiants. Ensuite vous utiliserez le feedback reçu pour améliorer votre propre projet et présenterez votre prototype à l'équipe enseignante et un des développeurs d'INGINIOUS. 
 
+
+Continuez votre lecture avec le document :doc:`web`.

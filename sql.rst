@@ -8,4 +8,6 @@
 Les bases de données SQL
 ========================
 
-
+.. note::
+   
+   Le document complet sera disponible la semaine prochaine.

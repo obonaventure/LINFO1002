@@ -8,7 +8,7 @@
 La visualisation via ``chart.js``
 =================================
 
-Lorsque l'on est fasse à de grandes quantités d'informations, il est
+Lorsque l'on est face à de grandes quantités d'informations, il est
 important de pouvoir les visualiser correctement pour pouvoir
 en tirer des conclusions. De nombreux logiciels permettent de visualiser
 des données numériques sous différentes formes. Dans le cadre de
@@ -16,19 +16,18 @@ ce projet, votre objectif est de développer un site web interactif qui présent
 des données de façon graphique. Une première approche pour construire
 un tel site web pourrait être de produire ces graphiques directement
 en python avec `matplotlib <https://matplotlib.org/>`_ par exemple et
-d'intégrer les images produites dans des pages HTML. Une telle approche est
-lourde à mettre en oeuvre. Il est préférable de passer par des librairies
+d'intégrer les images produites dans des pages HTML. Malheureusement,
+une telle approche serait lourde à mettre en oeuvre. Il est préférable de passer par des librairies
 spécialisées dans la visualisation d'information via le web.
 
 Dans le cadre de ce projet, vous utiliserez `chartjs <https://www.chartjs.org>`_ qui est assez simple à mettre en oeuvre tout en donnant un excellent
 résultat au niveau graphique. `chartjs <https://www.chartjs.org>`_ est une
-librairie codée en Javascript. Javascript est un langage de programmation qui
+librairie codée en `Javascript <https://fr.wikipedia.org/wiki/JavaScript>`_. Javascript est un langage de programmation qui
 est utilisé par les navigateurs pour avoir des pages HTML qui s'adaptent
 dynamiquement. On peut voir Javascript comme étant une extension de HTML sur
 le web. Dans le cadre de ce projet, nous nous concentrerons sur l'utilisation
 de `chartjs <https://www.chartjs.org>`_ dans une page HTML. L'utilisation
 complète de Javascript sort du cadre de ce cours.
-
 
 Un graphique `chartjs` est toujours inclus dans une zone rectangulaire
 définie par l'élément HTML5 `canvas` (canevas en français).
@@ -45,7 +44,6 @@ dans le code Javascript qui utilise la librairie `chartjs`.
    
 
 .. code-block:: html
-
                 
    <canvas id="graphique" width="200" height="100"></canvas>
 
@@ -97,7 +95,13 @@ des erreurs de syntaxe difficiles à identifier et corriger. Heureusement,
 les navigateurs modernes comprennent des outils qui facilitent la vie
 des développeurs et leur permettent de corriger rapidement ces erreurs.
 Prenons Chrome comme exemple, mais Firefox ou Safari supportent
-les mêmes fonctionnalités. Ajoutons dans la page HTML ci-dessus une erreur
+les mêmes fonctionnalités. Vous pouvez activer les outils pour développeurs
+de Chrome en cliquant sur les trois points verticaux en haut à droite de la fenêtre puis `More Tools` et enfin `Developer Tools`. Ce menu est aussi disponible
+en tapant `Ctrl+Shift+I`. Vous verrez alors apparaître différents outils dont
+la liste des éléments contenus dans la page HTML, une console avec les
+éventuels messages d'erreur, un accès aux sources de la page, ...
+
+Ajoutons dans la page HTML ci-dessus une erreur
 dans les étiquettes en oubliant la première apostrophe avant le prénom `Jean`.
 Chrome n'affiche rien car il y a une erreur de syntaxe dans le javascript à
 la ligne 23. 
@@ -146,7 +150,7 @@ un graphique qui reste difficile à interpréter.
 
 Une meilleure approche est de regrouper les points obtenus par les étudiants
 en classes, par exemple de 0-9, de 10 à 19, ... et de compter le nombre
-d'étudiants dans chaque classe. Cela permet d'identifier
+d'étudiants dans chaque classe. 
 
 .. figure:: figures/chartjs/stud-3.png 
 
@@ -165,8 +169,10 @@ certaine cote.
 
 
 Les exemples ci-dessus sont illustratifs. Vous pouvez certainement faire
-beaucoup mieux que ces exemple entièrement gris. Dans le cadre de ce projet, vous avez toute la liberté pour proposer une solution de visualisation qui permet
+beaucoup mieux que ces exemples entièrement gris. Dans le cadre de ce projet, vous avez toute la liberté pour proposer une solution de visualisation qui permet
 aux professeurs de visualiser les résultats des étudiants sur INGINIOUS. Vous
 trouverez de très nombreux livres et références sur la visualisation de
 données. Le livre `Fundamentals of Data Visualization <https://serialmentor.com/dataviz/index.html>`_ écrit par Claus Wilke fournit de très nombreuses astuces
 et règles de bonne pratique. 
+
+Continuez votre lecture avec le document :doc:`flask`.

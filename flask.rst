@@ -115,3 +115,4 @@ depuis son navigateur. Les fonctions que vous écrivez peuvent (doivent ?)
 bien entendu faire appel à d'autres fonctions et suivant les bonnes habitudes
 de découpe d'un programme en petites fonctions simples qui sont documentées,
 testées et réutilisables. 
+

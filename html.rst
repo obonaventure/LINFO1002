@@ -20,17 +20,17 @@ de nombreuses ressources concernant HTML et les technologies web.
 Dans le cadre de ce projet, nous nous concentrerons sur un sous-ensemble de
 la version 5 du langage HTML (HTML5). Libre à vous d'explorer le web et les
 bibliothèques pour utiliser d'autres fonctionnalités de ce langage. Il est
-très important pour un informaticien et pouvoir apprendre de façon autonome
+très important pour un informaticien de pouvoir apprendre de façon autonome
 en s'aidant des multiples ressources disponibles [#]_. 
 
-.. [#] En cas de doute, la spécification officielle et complète de HTML5 est accessible en ligne:
-       `https://html.spec.whatwg.org/multipage/ <https://html.spec.whatwg.org/multipage/>`_.
+.. [#] En cas de doute, la spécification officielle et complète de HTML5 est accessible en ligne via
+       `https://html.spec.whatwg.org/multipage/ <https://html.spec.whatwg.org/multipage/>`_. Ce n'est pas un document conçu pour aider les débutants.
 
 Un document HTML est composé de deux parties : l'entête (`head` en anglais) et le corps (`body` en anglais). L'entête contient des informations telles que le titre de la page qui sera affiché en haut de la fenêtre du navigateur, mais aussi le type de codage des caractères utilisé, ... Le corps de
 la page contient lui le document en hypertexte.
 
 Tout document HTML commence par la chaîne de caractères ``<!DOCTYPE html>``. Cette chaîne est suivie par la première balise (ouvrante) : `<html>`. Dans
-l'exemple ci-dessous, tout le texte se trouvant entre la balise ouvrante, `<html>`, et la balise fermante, `</html>` est marqué comme étant en HTML. Si un document HTML contient la balise ouvrante `<xyz>` il doit y avoir une balise fermante `</xyz>` plus loin qui délimite la zone de texte couverte par cette balise. C'est un peu comme des parenthèses dans une expression mathématique. Il y a toujours une parenthèse fermante qui correspond à une parenthèse ouvrante. 
+l'exemple ci-dessous, tout le texte se trouvant entre la balise ouvrante, `<html>`, et la balise fermante, `</html>` est du HTML. Si un document HTML contient la balise ouvrante `<xyz>` il doit y avoir une balise fermante `</xyz>` plus loin qui délimite la zone de texte couverte par cette balise. C'est un peu comme des parenthèses dans une expression mathématique. Il y a toujours une parenthèse fermante qui correspond à une parenthèse ouvrante. 
 
 L'entête du document HTML ci-dessous est la zone du fichier se trouvant entre
 les balises `<head>` et `</head>`. Celle-ci ne contient que le titre de la page que l'on reconnaît grâce à l'utilisation de la balise `<title>`.
@@ -45,7 +45,7 @@ les balises `<head>` et `</head>`. Celle-ci ne contient que le titre de la page 
    Une page HTML simple
 
    
-Le corps du document HTML ci-dessus est la partie du fichier se trouvant entre
+Le corps du document HTML ci-dessus est le texte se trouvant entre
 les balises `<body>` et `</body>`. Ce texte comprend deux sous-sections contenant chacune un paragraphe. La balise `<h1>` correspond à un titre de section de premier niveau (`<h2>` pour une sous-section, c'est-à-dire un titre de deuxième niveau, ...). La balise `<p>` sert à identifier un paragraphe.
 
 HTML5 définit de nombreuses balises qui ne peuvent pas être toutes détaillées dans le cadre de cette brève introduction. Outre les balises telles que `<h1>`
@@ -59,7 +59,7 @@ modifier le style utilisé pour présenter certains mots à l'écran, dont :
  - `<mark>` qui indique que du texte doit être sur-ligné
 
 Certaines balises sont liées à la présentation des paragraphes. Comme indiqué
-précédemment, un paragraphe début toujours par `<p>` et se termine par `</p>`. Celui-ci peut contenir de nombreuses lignes de textes. Le navigateur se chargera
+précédemment, un paragraphe débute toujours par `<p>` et se termine par `</p>`. Celui-ci peut contenir de nombreuses lignes de textes. Le navigateur se chargera
 de mettre en forme le paragraphe correctement entre les balises `<p>` et `</p>`.
 Parfois, l'auteur d'une page HTML peut souhaiter forcer un retour à la ligne à un endroit particulier d'un paragraphe. Cela peut se faire en utilisant
 la balise ouvrante `<br>`. Cette balise force le navigateur à aller directement
@@ -91,7 +91,7 @@ langages de programmation.
    Une page HTML simple avec des commentaires
 
 Comme le langage HTML utilise les caractères `<` et `>` dans la définition
-des balises, comment faut-il afficher ces caractères dans un document
+des balises, comment peut-on afficher ces caractères dans un document
 HTML ? Il n'est pas possible de simplement utiliser ces caractères
 puisqu'ils sont interprétés par HTML comme des débuts de balises. Pour résoudre
 ce problème, HTML définit les entités caractères suivantes:
@@ -101,7 +101,7 @@ ce problème, HTML définit les entités caractères suivantes:
  - `&amp;` pour représenter le caractère `&` dans du texte
  - `&nbsp;` pour indiquer un espace insécable
  - `&quot;` pour le caractère correspondant aux guillemets (`"`)
- - `&apos;` pour le caractère correspondant à l'apostrophe
+ - `&apos;` pour le caractère correspondant à l'apostrophe (`'`)
 
 
 Ainsi, dans une page HTML, il est possible d'expliquer en HTML le format d'un
@@ -113,15 +113,15 @@ commentaire en HTML.
    
 .. figure:: figures/html/html-comment2.png
 
-   Une autre page HTML montrant comment écrire un commentaire en HTML
+   Une page HTML montrant comment écrire un commentaire en HTML
 
 
 De nombreuses balises HTML supportent des attributs qui permettent de
 préciser certains paramètres de chacune d'entre elles. Il est impossible
-de les lister toutes dans ce document. En voici quelques unes
+de les lister toutes dans ce document. En voici quelques uns
 qui pourraient être utiles dans le cadre de ce projet.
 
-La balise `<html>` support l'attribut `lang` qui permet d'indiquer la langue
+La balise `<html>` supporte l'attribut `lang` qui permet d'indiquer la langue
 dans laquelle la page a été écrite. Ainsi `<html lang="fr">` est la balise
 ouvrante d'un document écrit en français tandis que `<html lang="en">`
 est celle d'un document en anglais.
@@ -129,11 +129,12 @@ est celle d'un document en anglais.
 La balise `<meta>` que l'on retrouve
 dans l'entête d'un document HTML supporte différents attributs. Le plus important est le type de code
 de caractères utilisé pour écrire le document. Aujourd'hui, le codage
-le plus répandu est l'Unicode qui correspond à UTF-8. Parmi les autres
-attributs, on peut citer :
+le plus répandu est l'`UTF-8 <https://fr.wikipedia.org/wiki/UTF-8>`_ qui fait
+partie du standard `Unicode <https://fr.wikipedia.org/wiki/Unicode>`_.
+Parmi les autres attributs, on peut citer :
 
  - l'attribut `description` qui fournit une information sur le contenu de la page
- - l'attribut `keywords` qui indique les mots-clés et peut être utile à des moteurs de recherche
+ - l'attribut `keywords` qui indique les mots-clés et est lu par certains moteurs de recherche
  - l'attribut `author` qui indique l'auteur de la page
 
 .. code-block:: html   
@@ -147,7 +148,7 @@ attributs, on peut citer :
 
    
 
-Ces attributs aux balises HTML nous permettent d'aborder deux éléments clés des
+Les attributs des balises HTML nous permettent d'aborder deux éléments clés des
 pages HTML :
 
  - les liens hypertextes
@@ -156,7 +157,7 @@ pages HTML :
 
 En HTML, un lien hypertexte s'écrit en utilisant la balise `<a>...</a>` pour
 ancre (`anchor` en anglais) et en utilisant l'attribut `href` pour indiquer
-l'URL du lien hypertext. Ainsi dans un document HTML, un lien qui
+l'URL du lien hypertexte. Ainsi dans un document HTML, un lien qui
 pointe vers le site web de l'UCLouvain s'écrit comme suit :
 
 
@@ -169,19 +170,18 @@ pointe vers le site web de l'UCLouvain s'écrit comme suit :
    Une autre page HTML contenant un lien hypertexte
    
 Grâce à la balise `<img>`, il est possible d'inclure une image à n'importe
-quel endroit dans une page HTML. Cette balise support plusieurs attributs :
+quel endroit d'une page HTML. Cette balise supporte plusieurs attributs :
 
  - `src` : permet d'indiquer l'URL du fichier contenant l'image à inclure. Celui-ci peut être absolu ou relatif. La plupart des navigateurs supportent les fichiers aux formats `png`, `jpg` ou `svg`.
  - `alt` : (optionnel) permet d'indiquer une description textuelle de l'image pour les navigateurs non-graphiques
- - `width` : (optionnel) permet d'indiquer la large de l'image en pixels. Par défaut le navigateur prendra la largeur de l'image d'origine
+ - `width` : (optionnel) permet d'indiquer la largeur de l'image en pixels. Par défaut le navigateur prendra la largeur de l'image d'origine
  - `height` : (optionnel) permet d'indiquer la hauteur de l'image en pixels. Par défaut le navigateur prendra la hauteur de l'image d'origine   
-
 
 Dans le document HTML, l'attribut `src` d'une image peut correspondre à
 un fichier se trouvant dans le même répertoire que le document HTML, un
 fichier présent dans un autre répertoire du même serveur ou sur un
 autre serveur. En pratique, les designers de sites web regroupent
-souvent leurs images dans un ou quelques répertoires voir utilisent des
+souvent leurs images dans un ou quelques répertoires ou utilisent des
 serveurs dédiés pour les sites utilisant de très nombreuses images. Pour
 un petit site, le plus simple est de regrouper toutes les images
 du site dans un répertoire nommé par exemple `/images`.
@@ -208,12 +208,12 @@ d'une légende. C'est aussi possible en HTML avec les balises `<figure>` et
    </figure>
    
    
-HTML permet également d'écrire des listes ordonnées ou non. Les listes
+HTML permet également d'afficher des listes ordonnées ou non. Les listes
 ordonnées utilisent la balise `<ol>` tandis les non-ordonnées utilisent la
 balise `<ul>`. Ces deux balises supportent différents attributs. Pour la
 liste non-ordonnée, l'attribut `list-style-type` indique le type de marqueur
 d'élément. Par défaut c'est un point, mais il est possible d'utiliser
-un cercle (attribut `circle`), un carré (attribut `square`).
+un cercle (attribut `circle`), un carré (attribut `square`), ...
 
 
 .. literalinclude:: figures/html/html-li.html
@@ -239,8 +239,6 @@ ou en chiffres romains (attribut `type="I"`).
 .. figure:: figures/html/html-ol.png
 
    Une page HTML contenant une liste ordonnée
-
-
 
 
 Outre les listes, il est aussi possible de présenter des informations
@@ -282,13 +280,42 @@ la taille de la police (`font-size`). HTML5 supporte de très nombreuses couleur
 sur base de ses composantes rouge, verte et bleue. Cela permet à HTML de
 supporter toutes les couleurs imaginables.
 
-.. formulaire ??
+Même si HTML est principalement utilisé pour présenter de l'information, il
+est parfois nécessaire sur un site web de demander à l'utilisateur d'envoyer
+de l'information. En HTML, cela se fait en utilisant un formulaire qui est
+délimité par les balises `<form>` et `</form>`. Un formulaire est composé de plusieurs éléments. Le plus important est l'élément `<input>`. Cet élément supporte différents attributs de type. Par exemple, un élément `<input type="text">` permettra de définir une zone d'une ligne de texte dans un formulaire. un élément
+`<input type="button">` permettra de spécifier un bouton, un élément `<input type="date">` sera utilisé pour demander une date, ... Enfin, l'élément `<input type="submit">` sera utilisé pour envoyer toutes les informations d'un formulaire
+au serveur.
+
+L'intérêt d'un formulaire est de permettre à l'utilisateur d'encoder dans la
+page HTML courante de l'information qui sera ensuite envoyée au serveur.
+Grâce aux éléments du formulaire, il est possible de déterminer différents
+types de champ qui peuvent être remplis par l'utilisateur. Chacun de ces champs est identifié par un nom (`name` en anglais) et celui-ci est envoyé au serveur
+avec la valeur encodée par l'utilisateur lorsque celui-ci clique sur `Submit`. Les noms de ces champs doivent être uniques dans un formulaire pour permettre
+au serveur de déterminer à quel champ correspond chaque valeur reçue.
+
+
+.. literalinclude:: figures/html/html-form.html
+   :language: html                 
+               
+   
+.. figure:: figures/html/html-form.png
+
+   Une page HTML contenant un formulaire
+
+Le formulaire ci-dessous demande à l'utilisateur d'encoder son nom et
+son prénom. Ces deux informations sont encodées dans une zone `text`. Chacune
+de ces zones de texte est associée à un nom (`name`) et un identifiant (`id`).
+L'attribut `name` est transmis avec la donnée encodée au serveur web. L'identifiant lui peut être utilisé par du Javascript qui serait associé à ce formulaire. Cette utilisation sort du cadre de ce projet, mais sachez que vous devez spécifier ces noms et identifiants. Les étiquettes (balises `<label>` utilisent l'attribut `for` pour spécifier à quelle zone de l'élément `input` elles sont associées. Enfin, l'attribut `method=post` associé à l'élément `<form>` indique que le
+contenu du formulaire sera envoyé au serveur en utilisant une requête POST. Si cet attribut n'est pas spécifié, c'est une requête GET qui est utilisée. 
+   
 
 Les feuilles de style
 ---------------------
 
 Lorsque l'on développe quelques pages HTML manuellement, il est possible
-d'indiquer ces attributs directement dans chaque page HTML. Malheureusement,
+d'indiquer les attributs tels que la couleur des caractères ou la police
+à utiliser directement dans chaque page HTML. Malheureusement,
 c'est assez fastidieux et il est difficile de garder une cohérence
 entre la présentation des différentes pages d'un même site web. Lorsqu'un
 site web est géré par un logiciel et est susceptible d'afficher de nombreuses
@@ -296,14 +323,14 @@ pages HTML, il est préférable d'utiliser des feuilles de style ou Cascading
 Style Sheets (CSS). Une feuille de style est un ensemble cohérent
 de règles que le navigateur va appliquer à la mise en page d'un document
 HTML. Elle peut être incluse directement dans l'entête de chaque page HTML ou
-référencée dans cette entête. La seconde solution est la préférable. Cela
+référencée dans cette entête. La seconde solution est préférable. Cela
 permet à avoir une même feuille de style, chargée une seule fois par le
 navigateur, pour toutes les pages d'un site web. C'est la solution que
 nous vous encourageons à adopter et donc la seule que nous
 décrivons dans ces notes.
 
 Une feuille de style indique comment la page sera présentée globalement (police
-de caractères, couleur de fond d'écran, ...) mais surtout comment chaque élément
+de caractères, couleur de fond d'écran, ...) mais surtout les particularités de chaque élément
 de la page sera présenté. Dans une feuille de style CSS, il est possible de
 modifier la présentation des entêtes d'un niveau particulier, des paragraphes,
 des tables, ... Une feuille style CSS permet d'appliquer une série d'attributs
@@ -332,7 +359,7 @@ feuille de style CSS est :
 Dans une telle feuille de style, le sélecteur correspond à un type d'élément
 se trouvant dans le document HTML. L'élément `body` correspond à l'ensemble
 du corps de la page HTML. L'élément `p` correspond à un paragraphe tandis
-que l'élément `h1` un titre de premier niveau. Dans une feuille CSS,
+que l'élément `h1` à un titre de premier niveau. Dans une feuille CSS,
 la balise `/*` marque le début d'un commentaire. La balise `*/` marque la
 fin d'un commentaire.
 
@@ -354,9 +381,9 @@ La puissance de CSS dans HTML5 vient du fait qu'il est possible d'appliquer
 ces attributs à des parties de texte qui ont étés préalablement marqués
 par l'auteur du document. Prenons comme exemple une application web
 qui doit afficher une liste de lieux et une liste de mesures de températures
-minimales et maximales. Supposons que le nom du lieu doit s'afficher en
+minimales et maximales. Supposons que le nom du lieu doive s'afficher en
 bleu et les températures en vert. Sans les styles, une telle page
-en HTML pourrait s'écrire comme suit:
+en HTML pourrait s'écrire comme suit :
 
 
 .. literalinclude:: figures/html/html-simple-nocss.html
@@ -393,19 +420,20 @@ Et le résultat apparaît comme prévu.
    Une page HTML utilisant une feuille de style
    
    
-L'avantage clair de cette approche est que si on veut remplacer la
+L'avantage de cette approche est que si on veut remplacer la
 couleur verte par de l'orange pour les températures, il suffira
-de modifier une seule ligne dans le fichier CSS.
+de modifier une seule ligne dans le fichier CSS et toutes les pages
+du site web seront automatiquement adaptées.
 
 Grâce à l'attribut `class` des éléments HTML5, il est possible d'identifier
 différents types de paragraphes, de listes ou de tables qui auront une
 mise en page différente en fonction de leur contenu. Lorsque ces éléments
 sont générés par des programmes, il est facile de leur associer la
 bonne classe directement. Il est possible d'aller plus loin en
-utilisant les balises `<div>` et `<span>`. Ces deux balises sont génériques
-et elles permettent de regrouper des zones d'un document HTML5. La
+utilisant les balises `<div>` et `<span>`. Ces deux balises sont génériques.
+Elles permettent de regrouper des zones d'un document HTML5. La
 balise `<div>` s'utilise pour regrouper une zone qui contient d'autres
-éléments HTML5. La balise `<span>` s'utilise elle plutôt autour d'une
+éléments HTML5. La balise `<span>` s'utilise plutôt autour d'une
 petite zone de texte. Ces deux balises peuvent contenir un attribut `class`.
 
 Notre premier exemple utilise la balise `<div>` pour entourer un
@@ -428,7 +456,7 @@ Et le résultat apparaît comme prévu.
    Une page HTML utilisant une feuille de style et la balise `<div>`
 
 Notre second exemple utilise la balise `<span>` pour afficher avec une
-couleur différente les températures minimales et maximales mesurées dans
+couleur différente les températures minimale et maximale mesurées dans
 une ville.
 
 .. literalinclude:: figures/html/html-simple-css-span.html 
@@ -450,3 +478,5 @@ Et le résultat apparaît comme prévu.
 L'attribut `class` et les balises `<div>` et `<span>` sont très utiles lorsque l'on
 veut produire avec un programme des pages HTML qui auront la même mise en page. Pensez à
 les utiliser à bon escient dans le cadre de votre projet.
+
+Continuez votre lecture avec le document :doc:`chartjs`.
