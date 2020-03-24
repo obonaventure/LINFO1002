@@ -83,7 +83,7 @@ matricule ne peut contenir que des nombres entiers.
 
 +------------+------------+-----------+--------------------------+
 | matricule  | nom        | prénom    | email                    |
-+============+============+===========+==========================+
++------------+------------+-----------+--------------------------+
 | 17         | Durand     | Jules     | jules.durand@gmail.com   |
 +------------+------------+-----------+--------------------------+
 | 42         | Tartempion | Emilie    | et@hotmail.com           |
@@ -118,9 +118,9 @@ table qui reprend les inscriptions à un programme universitaire. Celle-ci
 pourrait être structurée comme suit:
 
 
-+============+============+===========+
++------------+------------+-----------+
 | programme  | étudiant   | année     |
-+============+============+===========+
++------------+------------+-----------+
 | SINF1BA    | 17         | 2         |
 +------------+------------+-----------+
 | SINF11     | 33         | 1         |
@@ -490,7 +490,7 @@ SQLite support également des fonctions spécifiques à la manipulation des date
 Parmi les fonctions supportées par SQLite, les `fonctions d'agrégation <https://sqlite.org/lang_aggfunc.html>`_ sont particulières car elles permettent de
 réaliser des calculs sur les résultats d'une requête. Voici quelques exemples
 qui illustrent leur utilisation. Elles sont décrites dans le manuel
-de SQLite: `https://sqlite.org/lang_aggfunc.html <https://sqlite.org/lang_aggfunc.html>`.
+de SQLite: `https://sqlite.org/lang_aggfunc.html <https://sqlite.org/lang_aggfunc.html>`_.
 
 .. literalinclude:: sql/db-select1.py 
    :language: python
