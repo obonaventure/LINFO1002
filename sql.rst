@@ -38,7 +38,8 @@ lier entre eux les lignes qui se trouvent dans des tables différents.
    iTunes
    Binary
    OBject
-
+   tutoriels
+   
 Dans ce document, nous nous focaliserons sur les bases de données utilisant
 le Structured Query Language (SQL), un langage standardisé supporté par
 défaut vendeurs de base de données. Pour le projet, nous utiliserons
@@ -307,7 +308,6 @@ qui ne contient pas de valeur pour le champ ``AGE``.
 
 
 
-
 Recherche d'information dans une base de données SQL
 ....................................................
 
@@ -510,4 +510,590 @@ table d'exemple.
    :end-before: #e9
 
 
+Jusqu'à présent, nous avons manipulé une base de données minuscule contenant
+une seule table. Pour aborder des utilisations plus avancées de
+SQL, nous allons maintenant travailler sur la base de données
+Chinook qui a été présentée plus tôt. Cette base de données comprend plusieurs
+tables.
 
+.. code-block:: console
+
+   sqlite> .tables
+   Album          Employee       InvoiceLine    PlaylistTrack
+   Artist         Genre          MediaType      Track        
+   Customer       Invoice        Playlist     
+
+Dans la suite de ce document, nous allons utiliser les tables ``Album``,
+``Artist`` et ``Track``.
+
+La table ``Artist`` est très simple, elle contient une liste d'artistes
+et associe à chacun d'entre eux un identifiant.
+
+.. code-block:: console
+
+   sqlite> .schema Artist
+   CREATE TABLE [Artist]
+   (
+     [ArtistId] INTEGER  NOT NULL,
+     [Name] NVARCHAR(120),
+     CONSTRAINT [PK_Artist] PRIMARY KEY  ([ArtistId])
+   );
+   CREATE UNIQUE INDEX [IPK_Artist] ON [Artist]([ArtistId]);
+
+
+La requête ci-dessous permet de visualiser un sous-ensemble
+de cette table qui contient 275 artistes.
+
+.. literalinclude:: sql/db-chinook.py 
+   :language: python
+   :start-after: #s1
+   :end-before: #e1
+
+.. code-block:: console
+
+   Table Artist
+   (1, 'AC/DC')
+   (2, 'Accept')
+   (3, 'Aerosmith')
+   (4, 'Alanis Morissette')
+   (5, 'Alice In Chains')
+   (6, 'Antônio Carlos Jobim')
+   (7, 'Apocalyptica')
+   (8, 'Audioslave')
+   (9, 'BackBeat')
+   (10, 'Billy Cobham')
+   Nombre total de lignes:  275
+
+Il est intéressant de noter que si l'on cherche à extraire uniquement
+quelques lignes de la base de données, il suffit d'utiliser le paramètre
+``LIMIT`` comme dans l'exemple ci-dessous.
+
+.. literalinclude:: sql/db-chinook.py 
+   :language: python
+   :start-after: #s1b
+   :end-before: #e1b
+
+   
+   
+La table ``Album`` contient une liste d'albums de musique avec des
+références vers la table ``Artist``. Chaque album est associé à
+un identifiant unique.
+
+.. code-block:: console
+		
+   sqlite> .schema Album
+   CREATE TABLE [Album]
+   (
+    [AlbumId] INTEGER  NOT NULL,
+    [Title] NVARCHAR(160)  NOT NULL,
+    [ArtistId] INTEGER  NOT NULL,
+    CONSTRAINT [PK_Album] PRIMARY KEY  ([AlbumId]),
+    FOREIGN KEY ([ArtistId]) REFERENCES [Artist] ([ArtistId]) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION
+   );
+   CREATE UNIQUE INDEX [IPK_Album] ON [Album]([AlbumId]);
+   CREATE INDEX [IFK_AlbumArtistId] ON [Album] ([ArtistId]);
+
+   
+Cette table contient 347 lignes.
+
+.. literalinclude:: sql/db-chinook.py 
+   :language: python
+   :start-after: #s2
+   :end-before: #e2
+
+
+.. code-block:: console
+
+   Table Album
+   (1, 'For Those About To Rock We Salute You', 1)
+   (2, 'Balls to the Wall', 2)
+   (3, 'Restless and Wild', 2)
+   (4, 'Let There Be Rock', 1)
+   (5, 'Big Ones', 3)
+   (6, 'Jagged Little Pill', 4)
+   (7, 'Facelift', 5)
+   (8, 'Warner 25 Anos', 6)
+   (9, 'Plays Metallica By Four Cellos', 7)
+   (10, 'Audioslave', 8)
+   Nombre total de lignes:  347
+
+
+La table ``Track`` est la plus complexe. Elle contient les informations
+relatives aux chansons qui se trouvent sur les différents albums de musique.
+
+.. code-block:: console
+
+   sqlite> .schema Track
+   CREATE TABLE [Track]
+   (
+    [TrackId] INTEGER  NOT NULL,
+    [Name] NVARCHAR(200)  NOT NULL,
+    [AlbumId] INTEGER,
+    [MediaTypeId] INTEGER  NOT NULL,
+    [GenreId] INTEGER,
+    [Composer] NVARCHAR(220),
+    [Milliseconds] INTEGER  NOT NULL,
+    [Bytes] INTEGER,
+    [UnitPrice] NUMERIC(10,2)  NOT NULL,
+    CONSTRAINT [PK_Track] PRIMARY KEY  ([TrackId]),
+    FOREIGN KEY ([AlbumId]) REFERENCES [Album] ([AlbumId]) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION,
+    FOREIGN KEY ([GenreId]) REFERENCES [Genre] ([GenreId]) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION,
+    FOREIGN KEY ([MediaTypeId]) REFERENCES [MediaType] ([MediaTypeId]) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION
+   );
+   CREATE UNIQUE INDEX [IPK_Track] ON [Track]([TrackId]);
+   CREATE INDEX [IFK_TrackAlbumId] ON [Track] ([AlbumId]);
+   CREATE INDEX [IFK_TrackGenreId] ON [Track] ([GenreId]);
+   CREATE INDEX [IFK_TrackMediaTypeId] ON [Track] ([MediaTypeId]);
+
+
+Cette table contient 3503 morceaux de musique.
+   
+.. literalinclude:: sql/db-chinook.py 
+   :language: python
+   :start-after: #s3
+   :end-before: #e3
+
+
+.. code-block:: console
+
+   Table Track
+   (1, 'For Those About To Rock (We Salute You)', 1, 1, 1, 'Angus Young, Malcolm Young, Brian Johnson', 343719, 11170334, 0.99)
+   (2, 'Balls to the Wall', 2, 2, 1, None, 342562, 5510424, 0.99)
+   (3, 'Fast As a Shark', 3, 2, 1, 'F. Baltes, S. Kaufman, U. Dirkscneider & W. Hoffman', 230619, 3990994, 0.99)
+   (4, 'Restless and Wild', 3, 2, 1, 'F. Baltes, R.A. Smith-Diesel, S. Kaufman, U. Dirkscneider & W. Hoffman', 252051, 4331779, 0.99)
+   (5, 'Princess of the Dawn', 3, 2, 1, 'Deaffy & R.A. Smith-Diesel', 375418, 6290521, 0.99)
+   (6, 'Put The Finger On You', 1, 1, 1, 'Angus Young, Malcolm Young, Brian Johnson', 205662, 6713451, 0.99)
+   (7, "Let's Get It Up", 1, 1, 1, 'Angus Young, Malcolm Young, Brian Johnson', 233926, 7636561, 0.99)
+   (8, 'Inject The Venom', 1, 1, 1, 'Angus Young, Malcolm Young, Brian Johnson', 210834, 6852860, 0.99)
+   (9, 'Snowballed', 1, 1, 1, 'Angus Young, Malcolm Young, Brian Johnson', 203102, 6599424, 0.99)
+   (10, 'Evil Walks', 1, 1, 1, 'Angus Young, Malcolm Young, Brian Johnson', 263497, 8611245, 0.99)
+   Nombre total de lignes:  3503
+
+
+Avec ce trois tables, il est possible d'explorer des requêtes SQL plus
+complexes.
+
+Commençons par essayer d'extraire de la base de données les albums d'un artiste donné. Pour cela, il faut d'abord extraire l'identifiant de cet
+artiste de la table ``Artist`` puis faire une requête dans la table
+``Album`` comme la suivante:
+
+.. literalinclude:: sql/db-chinook.py 
+   :language: python
+   :start-after: #s4
+   :end-before: #e4
+
+Cette requête affiche:
+
+.. code-block:: console
+
+   Albums d'AC/DC
+   ('For Those About To Rock We Salute You',)
+   ('Let There Be Rock',)
+   Nombre total de lignes:  2
+		
+
+	
+Ce n'est pas très efficace au niveau de l'utilisation de la base
+de données. Il faut en effet d'abord consulter la base de données
+pour connaître l'identifiant de l'artiste et ensuite rechercher
+celui-ci dans la table ``Album``. Si l'on veut rechercher les albums
+de plusieurs artistes, la clause WHERE peut prendre comme argument
+une liste d'identifiants comme dans l'exemple ci-dessous.
+
+.. literalinclude:: sql/db-chinook.py 
+   :language: python
+   :start-after: #s5
+   :end-before: #e5
+
+
+.. code-block:: console
+
+   Albums d'AC/DC ou Aerosmith
+   ('For Those About To Rock We Salute You',)
+   ('Let There Be Rock',)
+   ('Big Ones',)
+   Nombre total de lignes:  3
+
+Cette approche peut être étendue pour par exemple extraire de la base
+de données tous les albums d'un artiste dont le nom commence par ``A``.
+
+.. literalinclude:: sql/db-chinook.py 
+   :language: python
+   :start-after: #s6
+   :end-before: #e6
+
+		
+Même si ce code affiche le résultat demandé, ce n'est pas la bonne approche.
+
+.. code-block:: console
+
+   Ids des artistes dont le nom débute par A
+   [1, 2, 3, 4, 5, 6, 7, 8, 26, 43, 159, 161, 166, 197, 202, 206, 209, 214, 215, 222, 230, 239, 243, 252, 257, 260]
+   Albums d'artistes dont le nom débute par A
+   ('For Those About To Rock We Salute You',)
+   ('Let There Be Rock',)
+   ('Balls to the Wall',)
+   ('Restless and Wild',)
+   ('Big Ones',)
+   ('Jagged Little Pill',)
+   ('Facelift',)
+   ('Warner 25 Anos',)
+   ('Chill: Brazil (Disc 2)',)
+   ('Plays Metallica By Four Cellos',)
+   Nombre total de lignes:  27
+		
+La bonne approche est d'utiliser SQL pour générer aussi la liste des
+artistes dans une seule requête. Il est en effet possible de mettre
+dans la clause ``WHERE`` d'une requête une autre requête SQL qui
+elle aussi produit une liste.
+
+.. literalinclude:: sql/db-chinook.py 
+   :language: python
+   :start-after: #s7
+   :end-before: #e7
+
+Cette requête fournit le résultat attendu.
+
+.. code-block:: console
+
+   Albums d'artistes dont le nom débute par A
+   ('For Those About To Rock We Salute You',)
+   ('Let There Be Rock',)
+   ('Balls to the Wall',)
+   ('Restless and Wild',)
+   ('Big Ones',)
+   ('Jagged Little Pill',)
+   ('Facelift',)
+   ('Warner 25 Anos',)
+   ('Chill: Brazil (Disc 2)',)
+   ('Plays Metallica By Four Cellos',)
+   Nombre total de lignes:  27
+
+Il est évidemment possible d'utiliser une requête SQL dans la clause
+``WHERE`` de la seconde requête et ainsi de suite.
+
+SQL permet aussi de contrôler l'ordre dans lequel les données sont
+retournée. Par défaut, celles-ci sont retournées dans un ordre
+non spécifié, mais on peut forcer un ordonnancement sur base de certaines
+colonnes en utilisant le paramètre ``ORDER BY`` après la liste des
+tables (ou après la clause ``WHERE`` si celle-ci est présente).
+
+.. literalinclude:: sql/db-chinook.py 
+   :language: python
+   :start-after: #s10
+   :end-before: #e10
+
+Cette requête affiche les noms d'albums dans l'ordre alphabétique.
+
+.. code-block:: console
+
+   (156, '...And Justice For All')
+   (257, '20th Century Masters - The Millennium Collection: The Best of Scorpions')
+   (296, 'A Copland Celebration, Vol. I')
+   (94, 'A Matter of Life and Death')
+   (95, 'A Real Dead One')
+
+
+Il est aussi possible de spécifier un ordre sur une première colonne et
+une seconde en croissant ou décroissant.
+   
+.. literalinclude:: sql/db-chinook.py 
+   :language: python
+   :start-after: #s11
+   :end-before: #e11
+
+Cette requête affiche les noms des cinq plus longs morceaux de
+la base de données.
+
+.. code-block:: python
+
+   (2820, 'Occupation / Precipice', 5286953)
+   (3224, 'Through a Looking Glass', 5088838)
+   (3244, 'Greetings from Earth, Pt. 1', 2960293)
+   (3242, 'The Man With Nine Lives', 2956998)
+   (3227, 'Battlestar Galactica, Pt. 2', 2956081)
+		
+
+SQL permet aussi de combiner des informations qui sont stockées dans
+plusieurs tables différentes. Celle-ci s'appelle généralement une jointure
+dans la terminologie SQL. Une telle jointure est illustrée dans l'exemple
+ci-dessous.
+
+.. literalinclude:: sql/db-chinook.py 
+   :language: python
+   :start-after: #s8
+   :end-before: #e8
+
+Cette requête retourne le résultat attendu.
+
+.. code-block:: console
+
+   Albums et artistes 
+   ('For Those About To Rock We Salute You', 'AC/DC')
+   ('Balls to the Wall', 'Accept')
+   ('Restless and Wild', 'Accept')
+   ('Let There Be Rock', 'AC/DC')
+   ('Big Ones', 'Aerosmith')
+   ('Jagged Little Pill', 'Alanis Morissette')
+   ('Facelift', 'Alice In Chains')
+   ('Warner 25 Anos', 'Antônio Carlos Jobim')
+   ('Plays Metallica By Four Cellos', 'Apocalyptica')
+   ('Audioslave', 'Audioslave')
+   Nombre total de lignes:  347
+
+.. spelling::
+   
+   conceptuellement
+   Conceptuellement   
+
+Soyez cependant attentif au fonctionnement d'un jointure en SQL.
+Conceptuellement, il faut imagine qu'une jointure se déroule comme suit:
+
+ 1. La base de données extrait les lignes des deux tables sélectionnées et construit toutes les paires de lignes contenant une ligne de la première et une ligne de la seconde
+ 2. La base de données filtre les lignes intéressantes sur base des clauses ``WHERE``
+ 3. La base de données retourne les colonnes indiquées dans le ``SELECT``    
+
+
+Il faut garder ce mode de fonctionnement en mémoire lorsque l'on utilise
+une jointure SQL. La requête ci-dessous est un bon contre-exemple de ce qu'il
+ne faut pas faire.
+		
+.. literalinclude:: sql/db-chinook.py 
+   :language: python
+   :start-after: #s9
+   :end-before: #e9
+
+.. code-block:: console
+		
+   ('For Those About To Rock We Salute You', 'AC/DC')
+   ('For Those About To Rock We Salute You', 'Accept')
+   ('For Those About To Rock We Salute You', 'Aerosmith')
+   ('For Those About To Rock We Salute You', 'Alanis Morissette')
+   ('For Those About To Rock We Salute You', 'Alice In Chains')
+   ('For Those About To Rock We Salute You', 'Antônio Carlos Jobim')
+   ('For Those About To Rock We Salute You', 'Apocalyptica')
+   ('For Those About To Rock We Salute You', 'Audioslave')
+   ('For Those About To Rock We Salute You', 'BackBeat')
+   ('For Those About To Rock We Salute You', 'Billy Cobham')
+   Nombre total de lignes:  95425
+
+Cette requête retourne le produit-cartésien entre les deux tables. Si la
+première contient `N` lignes et la secondes `M` lignes, le résultat en
+contient `N*M` ce qui peut être énorme pour de grosses bases de données.
+
+
+SQLite supporte trois types de jointures: ``INNER JOIN``, ``LEFT JOIN``
+et ``CROSS JOIN``. Il est intéressant de voir sur quelques exemples
+comment ces jointures se comportent.
+
+Notre première requête permet d'afficher les artistes avec leurs albums en joignant la table ``Album` avec la table ``Artist``.  
+
+.. literalinclude:: sql/db-chinook.py 
+   :language: python
+   :start-after: #s12
+   :end-before: #e12
+
+Dans cette requête, le champ ``Name`` provient de la table ``Artist`` tandis que le champ ``Title`` de la table ``Album``. Seules les lignes pour lesquelles le champ ``ArtistId`` provenant de la table ``Artist`` est identique à celui provenant de la table ``Album`` sont affichées.
+		
+.. code-block:: console
+
+   ('AC/DC', 'For Those About To Rock We Salute You')
+   ('AC/DC', 'Let There Be Rock')
+   ('Aaron Copland & London Symphony Orchestra', 'A Copland Celebration, Vol. I')
+   ('Aaron Goldberg', 'Worlds')
+   ('Academy of St. Martin in the Fields & Sir Neville Marriner', 'The World of Classical Favourites')
+
+   
+Des exemples complémentaires sont disponibles dans le tutoriel SQLite: `https://www.sqlitetutorial.net/sqlite-inner-join/ <https://www.sqlitetutorial.net/sqlite-inner-join/>`_
+
+Cette jointure permet de combiner l'information de deux tables. Cependant, elle
+ne permet pas de lister les artistes qui n'ont pas d'album dans la base de
+données car pour ceux-ci, la condition ``Artist.ArtistId = Album.ArtistId``
+est toujours fausse puisque la table ``Album`` ne contient aucune ligne avec l'identifiant de cet artiste. Si l'on veut obtenir cette information avec
+SQLite, il est possible d'utiliser un ``LEFT JOIN``. Cette jointure
+fonctionne conceptuellement en extrayant toutes les lignes de la première table (celle dite à gauche) et les lignes qui correspondent à la condition pour la
+seconde table (celle dite à droite). Le ``LEFT JOIN`` retourne ensuite toutes les lignes qui correspondent à la condition. Si une ligne de la première table n'a pas de ligne correspondante dans la second, SQLite retourne les champs de la première table et ``NULL`` pour ceux qui correspondent à la seconde.
+
+.. literalinclude:: sql/db-chinook.py 
+   :language: python
+   :start-after: #s13
+   :end-before: #e13
+
+Cette requête est particulièrement utile pour rechercher des lignes qui existent
+dans la première table mais pas dans la seconde. Elle retourne:
+
+.. code-block:: console
+		
+   ('A Cor Do Som', None)
+   ('Academy of St. Martin in the Fields, Sir Neville Marriner & William Bennett', None)
+   ("Aerosmith & Sierra Leone's Refugee Allstars", None)
+   ('Avril Lavigne', None)
+   ('Azymuth', None)
+
+
+D'autres exemples sont présentés dans le tutoriel SQLite: `https://www.sqlitetutorial.net/sqlite-left-join/ <https://www.sqlitetutorial.net/sqlite-left-join/>`_   
+
+La dernière jointure supportée par SQLite est appelée ``CROSS JOIN``. Elle
+retourne le produit cartésien entre les deux tables et doit être utilisée
+avec prudence vu la taille du résultat qu'elle peut retourner.
+
+Avant de terminer ce survol rapide des fonctionnalités de SQL, il est utile
+de revenir sur les fonctions qui permettent d'agréger de l'information
+extraite d'une base de données SQL. SQLite supporte plusieurs de ces
+fonctions dont ``avg()`` pour calculer une moyenne, ``min()`` et ``max`` ou
+encore ``count()``. Il est aussi possible de concaténer des chaînes
+de caractères avec ``group_concat()``. Lorsque l'on utilise ces fonctions, il est parfois
+important de spécifier les champs sur lesquels elles s'appliquent
+et comment les résultats doivent être retournés. Pour cela, la clause
+optionnelle ``GROUP BY`` d'une requête ``SELECT`` peut s'avérer utile.
+
+Supposons que l'on cherche à compter le nombre de morceaux présents dans
+chaque album de la table ``Album``. Cette table contient de nombreux albums
+comme l'indique la requête ci-dessous.
+
+.. literalinclude:: sql/db-chinook.py 
+   :language: python
+   :start-after: #s17
+   :end-before: #e17
+
+.. code-block:: console
+		
+   (1, 'For Those About To Rock (We Salute You)', 1)
+   (1, 'Put The Finger On You', 6)
+   (1, "Let's Get It Up", 7)
+   (1, 'Inject The Venom', 8)
+   (1, 'Snowballed', 9)
+   (1, 'Evil Walks', 10)
+   (1, 'C.O.D.', 11)
+   (1, 'Breaking The Rules', 12)
+   (1, 'Night Of The Long Knives', 13)
+   (1, 'Spellbound', 14)
+   (2, 'Balls to the Wall', 2)
+   (3, 'Fast As a Shark', 3)
+   (3, 'Restless and Wild', 4)
+   (3, 'Princess of the Dawn', 5)
+   (4, 'Go Down', 15)
+
+
+Une approche naïve pour compter les morceaux de chaque album serait
+d'écrire la requête suivante.
+
+.. literalinclude:: sql/db-chinook.py 
+   :language: python
+   :start-after: #s17
+   :end-before: #e17
+
+Malheureusement celle-ci se produit pas le résultat attendu.
+		
+.. code-block:: console
+		
+   (1, 3503)
+
+   
+Elle compte les différentes valeurs de TrackId mais non les morceaux
+associés à chaque album. Pour obtenir un résultat correct, il faut
+demander dans la requête SQL de grouper ensemble les valeurs qui ont
+le même TrackId. Cela peut se faire avec le clause ``GROUP BY`` comme dans
+l'exemple ci-dessous.
+
+
+.. literalinclude:: sql/db-chinook.py 
+   :language: python
+   :start-after: #s15
+   :end-before: #e15
+
+Cette requête produit le résultat attendu.
+		
+.. code-block:: console
+		
+   (1, 10)
+   (2, 1)
+   (3, 3)
+   (4, 8)
+   (5, 15)
+
+De la même façon, on peut rechercher tous les albums d'un artiste
+donné.
+
+.. literalinclude:: sql/db-chinook.py 
+   :language: python
+   :start-after: #s18
+   :end-before: #e18
+
+Cette requête produit le résultat attendu.
+		
+.. code-block:: console
+
+   (1, 'For Those About To Rock We Salute You !! Let There Be Rock')
+   (2, 'Balls to the Wall !! Restless and Wild')
+   (3, 'Big Ones')
+   (4, 'Jagged Little Pill')
+   (5, 'Facelift')
+
+Il est évidemment possible de combiner une jointure avec la clause
+``GROUP BY``. La requête ci-dessous extrait les cinq albums qui contiennent
+le plus de morceaux différents.
+
+.. literalinclude:: sql/db-chinook.py 
+   :language: python
+   :start-after: #s14
+   :end-before: #e14
+
+Cette requête produit le résultat attendu.
+		
+.. code-block:: console
+
+   ('Greatest Hits', 57)
+   ('Minha Historia', 34)
+   ('Unplugged', 30)
+   ('Lost, Season 3', 26)
+   ('Lost, Season 1', 25)
+
+D'autres exemples sont repris dans la section consacrée à ``GROUP BY`` du
+site `SQLiteTutorial.net <https://www.sqlitetutorial.net/>`_ : `https://www.sqlitetutorial.net/sqlite-group-by/ <https://www.sqlitetutorial.net/sqlite-group-by/>`_
+
+De nombreux livres et sites web proposés des cours et tutoriels sur l'utilisation des bases de données et de SQL en particulier. En voici quelques uns :
+
+ - J.-L. Hainaut, `Bases de données et modèles de calcul : Outils et méthodes pour l'utilisateur <https://projects.info.unamur.be/~dbm/mediawiki/index.php?title=LIBD:Ouvrages>`_, Dunod, 2004
+ - SQLiteTutorial : `https://www.sqlitetutorial.net/ <https://www.sqlitetutorial.net/>`_
+ - `sqlite3 - DB API 2.0 Interface for SQLite databases <https://docs.python.org/3/library/sqlite3.html>`_
+ - `SQL As Understood BY SQLite <https://sqlite.org/lang.html>`_
+ - `SQLite documentation <https://sqlite.org/docs.html>`_
+ - `w3schools.com's SQL Tutorial <https://www.w3schools.com/sql/>`_
+
+
+.. note:: Méfiez-vous des injections SQL
+
+   Avant de terminer, nous devons malheureusement attirer votre attention
+   sur le problème des attaques par `Injection SQL <https://realpython.com/prevent-python-sql-injection/>`_.
+   Lorsque l'on développe un serveur web qui utilise une base de données
+   SQL, il faut y être très attentif. Une telle attaque peut se produire
+   lorsqu'un client qui maîtrise parfaitement SQL interagit avec un serveur
+   développé par un programmeur débutant qui n'a pas pris toutes les
+   protections nécessaires.
+
+   Dans nos exemples avec ``SELECT``, nous avons utilisé les formes
+   recommandées par les auteurs de ``sqlite3``. Celles-ci permettent de
+   passer des valeurs de variables à la requête ``SELECT`` sans risquer
+   d'attaque par injection SQL. Une discussion détaillée de ces attaques
+   sort du cadre de ce cours, vous pouvez consulter un document
+   tel que `Preventing SQL Injection Attacks <https://realpython.com/prevent-python-sql-injection/>`_ si vous souhaitez en savoir plus.
+
+   
+
+   
+
+.. spelling::
+
+   Hainaut
+   Dunod
+   schools
+   com
+   Tutorial
+   d'identifiant
+   d'identifiants
+   
