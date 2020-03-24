@@ -118,7 +118,7 @@ table qui reprend les inscriptions à un programme universitaire. Celle-ci
 pourrait être structurée comme suit:
 
 
-+============+============+===========+
++------------+------------+-----------+
 | programme  | étudiant   | année     |
 +============+============+===========+
 | SINF1BA    | 17         | 2         |
