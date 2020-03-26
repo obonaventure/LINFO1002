@@ -3,6 +3,21 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+.. spelling::
+
+   crashé
+   anonymisée
+   d'INGINIOUS
+   téléchargeable
+   tutoriel
+   l'UCLouvain
+   l'Internet
+   l'URL
+   l'HyperText
+   grading
+   frontend
+
+   
 Second projet: site web de visualisation
 ========================================
 
@@ -59,7 +74,50 @@ suivants:
  - le framework Flask qui permet d'implémenter facilement des sites web interactifs en python, voir :ref:`ref-flask`
  - les bases de SQL et la façon dont on peut interagir avec une base de données SQL en python, voir :ref:`ref-sql`
 
-Vous veillerez, bien entendu, à écrire du code python clair, documenté et accompagné de tests unitaires. Une première version de votre projet devra être prête avant la fin du mois d'avril. Début mai, vous fournirez du feedback détaillé à d'autres groupes d'étudiants. Ensuite vous utiliserez le feedback reçu pour améliorer votre propre projet et présenterez votre prototype à l'équipe enseignante et un des développeurs d'INGINIOUS. 
+Vous veillerez, bien entendu, à écrire du code python clair, documenté et accompagné de tests unitaires. Une première version de votre projet devra être prête avant la fin du mois d'avril. Début mai, vous fournirez du feedback détaillé à d'autres groupes d'étudiants. Ensuite vous utiliserez le feedback reçu pour améliorer votre propre projet et présenterez votre prototype à l'équipe enseignante et un des développeurs d'INGINIOUS.
 
 
+La base de données extraite d'INGINIOUS est composée de deux tables et a la structure suivante :
+
+.. code-block:: python
+
+   submissions_schema = """CREATE TABLE submissions (
+      id            INTEGER PRIMARY KEY, /* ID numérique */
+      course        TEXT,                /* ID du cours */
+      task          TEXT,                /* ID de la tâche */
+      status        TEXT,                /* Etat du grading (done ou error), error indique que la soumission n'a pas pu être traitée */
+      submitted_on  TEXT,                /* Date de soumission en ISO8601 UTC */
+      username      TEXT,                /* ID de l'étudiant anonymisé */
+      response_type TEXT,                /* Type du feedback (peu utile) */
+      grade         REAL,                /* Note obtenue */
+      result        TEXT                 /* failed, killed, success, overflow, timeout, crash, error ou NULL */
+   );"""
+
+   user_tasks_schema = """CREATE TABLE user_tasks (
+      id         INTEGER PRIMARY KEY, /* ID numérique */
+      course     TEXT,                /* ID du cours */
+      task       TEXT,                /* ID de la tâche */
+      username   TEXT,                /* ID de l'étudiant anonymisé */
+      grade      REAL,                /* Note obtenue pour la soumission considérée pour l'évaluation */
+      submission INTEGER,             /* ID de la soumission considérée pour l'évaluation */
+      succeeded  TEXT,                /* true ou false, indiquant si la tâche est réussie (indépendamment de grade) */
+      tried      INTEGER,             /* Le nombre d'essais de l'étudiant pour la tâche */
+   FOREIGN KEY (submission) REFERENCES submissions(id)
+   );
+   """ 
+
+   
+Cette base de données a été anonymisée, vous n'avez pas accès aux vrais noms des étudiants. La plupart des champs ont une signification qui peut être comprise directement sur base du commentaire. Le champ ``result`` de la première table comprend les valeurs suivantes:
+
+ - `failed`: La soumission a été évaluée et l'étudiant a raté
+ - `killed` : le job de grading a été tué
+ - `success`: La soumission a été évaluée et l'étudiant a réussi
+ - `overflow`: L'évaluation de la soumission de l'étudiant a dépasser la mémoire allouée
+ - `timeout` : L'évaluation de la soumission de l'étudiant a dépasser le temps imparti
+ - `crash` : L'évaluation a crashé
+ - `error` : Le frontend a rencontré une erreur d'un type inconnu 
+
+La base de données est téléchargeable depuis :download:`sql/inginious.sqlite`
+   
 Continuez votre lecture avec le document :doc:`web`.
+

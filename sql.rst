@@ -303,8 +303,8 @@ qui ne contient pas de valeur pour le champ ``AGE``.
 				
 .. literalinclude:: sql/db-insert2.py 
    :language: python
-   :start-after: #s4
-   :end-before: #e4
+   :start-after: #s5
+   :end-before: #e5
 
 
 
@@ -984,10 +984,10 @@ d'écrire la requête suivante.
 
 .. literalinclude:: sql/db-chinook.py 
    :language: python
-   :start-after: #s17
-   :end-before: #e17
+   :start-after: #s16
+   :end-before: #e16
 
-Malheureusement celle-ci se produit pas le résultat attendu.
+Malheureusement celle-ci ne produit pas le résultat attendu.
 		
 .. code-block:: console
 		

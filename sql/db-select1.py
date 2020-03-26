@@ -9,15 +9,12 @@ conn = sqlite3.connect('Eleves.sqlite')
 # Le curseur permettra l'envoi des commandes SQL
 cursor = conn.cursor()
 
-#s1
 
 # Encodage direct des données 
 
 cursor.execute('''INSERT INTO CLASSE (MATRICULE, NOM, PRENOM, AGE, POINTS)
                   VALUES (1, 'Durant', 'Emilie', '8', 73.5)''')
 
-#e1
-#s2
 # Données passées via des espaces réservés
 
 mat=2
@@ -29,8 +26,6 @@ moyenne=88.65
 cursor.execute('''INSERT INTO CLASSE (MATRICULE, NOM, PRENOM, AGE, POINTS)
                 VALUES (?, ?, ?, ?, ?)''',
                (mat,nom,prenom,age,moyenne) )
-#e2
-#s3
 # Données passées via des espaces nommés
 
 mat=4
@@ -44,13 +39,13 @@ cursor.execute('''INSERT INTO CLASSE (MATRICULE, NOM, PRENOM, AGE, POINTS)
                {"mat":mat,"nom":nom,"prenom":prenom,"age":age,"points":moyenne} )
 
 
-#e3
+
 # Données incomplètes
-#s4
+
 cursor.execute('''INSERT INTO CLASSE (MATRICULE, NOM, PRENOM, AGE)
                   VALUES (12, 'Dupont', 'Jules', 9)''')
 
-#e4
+
 # utilisation de la base de données
 
 #start

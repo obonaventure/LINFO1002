@@ -4,7 +4,7 @@ import sqlite3
 
 # Accès à la base de données
 
-conn = sqlite3.connect('Chinook_Sqlite.sqlit')
+conn = sqlite3.connect('Chinook_Sqlite.sqlite')
 
 # Le curseur permettra l'envoi des commandes SQL
 cursor = conn.cursor()

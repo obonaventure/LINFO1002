@@ -109,10 +109,12 @@ par le serveur web dès que celui-ci reçoit une requête pour `page.html`.
    cadre de ce cours de première année. 
 
 
-Avec ces décorateurs et ces fonctions, il est possible de concevoir tout
-un site web dynamique qui permet à l'utilisateur d'interagir réellement
-depuis son navigateur. Les fonctions que vous écrivez peuvent (doivent ?)
-bien entendu faire appel à d'autres fonctions et suivant les bonnes habitudes
-de découpe d'un programme en petites fonctions simples qui sont documentées,
-testées et réutilisables. 
+Nous vous invitons à suivre le tutoriel officiel de flask qui a été traduit en français et est disponible via : `https://sites.uclouvain.be/P2SINF/flask/tutorial/index.html#tutorial <https://sites.uclouvain.be/P2SINF/flask/tutorial/index.html#tutorial>`
 
+
+.. spelling::
+
+   l'HyperText
+   l'URL
+   l'Internet
+   tutoriel
