@@ -112,8 +112,8 @@ Cette base de données a été anonymisée, vous n'avez pas accès aux vrais nom
  - `failed`: La soumission a été évaluée et l'étudiant a raté
  - `killed` : le job de grading a été tué
  - `success`: La soumission a été évaluée et l'étudiant a réussi
- - `overflow`: L'évaluation de la soumission de l'étudiant a dépasser la mémoire allouée
- - `timeout` : L'évaluation de la soumission de l'étudiant a dépasser le temps imparti
+ - `overflow`: L'évaluation de la soumission de l'étudiant a dépassé la mémoire allouée
+ - `timeout` : L'évaluation de la soumission de l'étudiant a dépassé le temps imparti
  - `crash` : L'évaluation a crashé
  - `error` : Le frontend a rencontré une erreur d'un type inconnu 
 

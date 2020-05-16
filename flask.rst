@@ -109,7 +109,7 @@ par le serveur web dès que celui-ci reçoit une requête pour `page.html`.
    cadre de ce cours de première année. 
 
 
-Nous vous invitons à suivre le tutoriel officiel de flask qui a été traduit en français et est disponible via : `https://sites.uclouvain.be/P2SINF/flask/tutorial/index.html#tutorial <https://sites.uclouvain.be/P2SINF/flask/tutorial/index.html#tutorial>`
+Nous vous invitons à suivre le tutoriel officiel de flask qui a été traduit en français et est disponible via : `https://sites.uclouvain.be/P2SINF/flask/tutorial/index.html#tutorial <https://sites.uclouvain.be/P2SINF/flask/tutorial/index.html#tutorial>`_
 
 
 .. spelling::
